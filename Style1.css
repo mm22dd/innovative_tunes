@@ -1,0 +1,39 @@
+body {
+    background-color: lightgrey;
+}
+/*Provides background color for whole page*/
+
+h1 {
+    text-align: center;
+    font-family: impact;
+}
+/*Formats for large headers. We can add different formats for h2, h3, etc or use IDs to format specific text*/
+
+.button {
+    text-align: center;
+    padding: 20px 80px; /*Defines button size*/
+    margin: 4px 2px; /*Defines space between buttons*/
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    font-family: Copperplate;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 36px; /*Gives buttons a rounded shape*/
+    transition-duration: 0.2s;
+}
+/*Gives some formatting for simple buttons. Most should be self explanatory*/
+
+.button:hover {
+    background-color: lime;
+    color: black;
+}
+/*Changes color of buttons when hovering over them*/
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*For use in center aligning. Not sure if it's working or not though...*/
