@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79efc10d-6675-4f2a-a298-1f856c395c49" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MainMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/innovative_tunes.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/Game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/MainMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainMenu3.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/MainMenu3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style3.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/header200px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/header200px.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/header300px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/header300px.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/temp_logo_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/temp_logo_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/title_logo_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/title_logo_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/public/topArtists.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/innovativetunes/src/index.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2nrJiydxS5QoyQy1IxVbiiExAwV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\2003j\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate 2024.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\2003j\Documents\GitHub\innovative_tunes\src" />
+      <recent name="C:\Users\2003j\Documents\GitHub\innovative_tunes\public" />
+      <recent name="C:\Users\2003j\Documents\GitHub\innovative_tunes" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79efc10d-6675-4f2a-a298-1f856c395c49" name="Changes" comment="" />
+      <created>1729725394188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729725394188</updated>
+      <workItem from="1729725395317" duration="14015000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
