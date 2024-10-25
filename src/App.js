@@ -1,5 +1,6 @@
 import './App.css';
 import './Style3.css'
+import './Game_style.css'
 import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
@@ -44,7 +45,6 @@ function App(){
     //frontend can change things here like normal html and the results will show up
     //this calls to another react component called table which is html with toptracks loaded into it
     content = (<div className="body">
-      <h1 className="h1">{topTracks.tracks[0].artists[0].name}</h1>
       <div className="body">
         <Table trackNames={topTracks.tracks} />
       </div>
@@ -55,9 +55,13 @@ function App(){
   return(
     <div>
       {content}
+      <footer className="footer">
+        © 2024 Artificial Innovators
+      </footer>
     </div>
   )
 }
+
 //function for getting a token from the spotify API
 async function getAuthKey() {
   let token
@@ -96,8 +100,18 @@ function getTopSongs(artistID, token){
 function Table({trackNames}){
   return (
     <div className="body">
-      <table>
-        <tbody>
+      <header className="header">
+        <img src={require("./images/title_logo_3.png")} alt="titlelogo" className="titlelogo"/>
+      </header>
+      <h1>{trackNames[0].artists[0].name}</h1>
+      <div className="hearts">
+        <img id="heart1" className="heart" src={require("./images/full_heart.png")} alt="Heart 1"/>
+        <img id="heart2" className="heart" src={require("./images/full_heart.png")} alt="Heart 2"/>
+        <img id="heart3" className="heart" src={require("./images/full_heart.png")} alt="Heart 3"/>
+      </div>
+
+      <table className="table">
+        <tbody className="tbody">
         <tr>
           <td>{trackNames[0].name}</td>
           <td>{trackNames[1].name}</td>
@@ -120,9 +134,6 @@ function Table({trackNames}){
         </tr>
         </tbody>
       </table>
-      <footer className="footer">
-        © 2024 Artificial Innovators
-      </footer>
     </div>
   )
 }
