@@ -3,9 +3,21 @@ body {
 }
 /*Provides background color for whole page*/
 
+.logo {
+    display: block;
+    margin: 0 auto; /* Centers the logo horizontally */
+    margin-top: 20px; /* Adjusts spacing between header and logo */
+    width: 300px; /* Adjust the size of the logo */
+    height: auto; /* Maintains aspect ratio */
+}
+/* Style for the logo underneath the header */
+
 h1 {
     text-align: center;
     font-family: impact;
+    font-size: 60px;
+    margin-top: 50px;
+    margin-bottom: 80px;
 }
 /*Formats for large headers. We can add different formats for h2, h3, etc or use IDs to format specific text*/
 
@@ -37,3 +49,10 @@ h1 {
     align-items: center;
 }
 /*For use in center aligning. Not sure if it's working or not though...*/
+
+footer {
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    color: black;
+}
