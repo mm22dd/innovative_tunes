@@ -1,8 +1,22 @@
 .body-style1 {
     background-color: lightgrey;
 }
+.header-style1 {
+    background-size: auto;
+    background-color: lightgrey; /* background color */
+    height: 20vh; /* Adjust the height as needed */
+    margin: 0;
+    padding: 0;
+}
 /*Provides background color for whole page*/
-
+.titlelogo-style1 {
+    position: absolute;
+    top: 5%; /* vertical position of the logo */
+    left: 50%; /* horizontal position of the logo */
+    transform: translateX(-50%);
+    width: 500px; /* size */
+    height: auto; /* aspect ratio */
+}
 .logo-style1 {
     display: block;
     margin: 0 auto; /* Centers the logo horizontally */

@@ -27,27 +27,36 @@ function MainMenu() {
   }
 
   let text
+  let logoImage
+  let titleImage
   let bodyStyle
   let headerStyle
   let centerStyle
   let footerStyle
   let buttonStyle
   let logoStyle
+  let titleStyle
   if (style === 1) {
-    text = "Innovative Tunes"
+    text = "Guess the song!"
+    logoImage = require("./images/temp_logo_3.png")
+    titleImage = require("./images/title_logo_3.png")
     bodyStyle = "body-style1"
     buttonStyle = "button-style1"
     headerStyle = "header-style1"
     centerStyle = "center-style1"
     logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style1"
     footerStyle = "footer-style1"
   } else if (style === 2) {
     text = "曲を推測します~!"
+    logoImage = require("./images/temp_logo_3.png")
+    titleImage = require("./images/title_logo_3.png")
     bodyStyle = "body-style3"
     buttonStyle = "button-style3"
     headerStyle = "header-style3"
     centerStyle = "center-style3"
     logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style3"
     footerStyle = "footer-style3"
   }
   if (started) {
@@ -57,8 +66,11 @@ function MainMenu() {
     return (
       <body className={bodyStyle}>
 
+      <header className={headerStyle}>
+        <img src={titleImage} alt="titlelogo" className={titleStyle}></img>
+      </header>
 
-      <img src={require("./images/temp_logo_3.png")} alt="Game Logo" className={logoStyle}></img>
+      <img src={logoImage} alt="Game Logo" className={logoStyle}></img>
 
       <h1 className={centerStyle}>{text}</h1>
 
@@ -84,9 +96,5 @@ function MainMenu() {
     )
   }
 }
-/*
-<header className={headerStyle}>
-  <img src={require("./images/title_logo_3.png")} alt="titlelogo" className="titlelogo"></img>
-</header>
- */
+
 export default MainMenu
