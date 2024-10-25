@@ -44,18 +44,18 @@ function App(){
   else{
     //frontend can change things here like normal html and the results will show up
     //this calls to another react component called table which is html with toptracks loaded into it
-    content = (<div className="body">
-      <div className="body">
+    content = (<div className="body-style3">
+      <div className="body-style3">
         <Table trackNames={topTracks.tracks} />
       </div>
-      <button className="button" onClick={() => setNewGame(!newGame)}>New Game</button>
+      <button className="button-style3" onClick={() => setNewGame(!newGame)}>New Game</button>
     </div>)
   }
   //return the content
   return(
     <div>
       {content}
-      <footer className="footer">
+      <footer className="footer-style3">
         © 2024 Artificial Innovators
       </footer>
     </div>
@@ -99,9 +99,9 @@ function getTopSongs(artistID, token){
 //react component that loads a table with the top 10 songs very temporary needs a lot of work
 function Table({trackNames}){
   return (
-    <div className="body">
-      <header className="header">
-        <img src={require("./images/title_logo_3.png")} alt="titlelogo" className="titlelogo"/>
+    <div className="body-style3">
+      <header className="header-style3">
+        <img src={require("./images/title_logo_3.png")} alt="titlelogo" className="titlelogo-style3"/>
       </header>
       <h1>{trackNames[0].artists[0].name}</h1>
       <div className="hearts">
