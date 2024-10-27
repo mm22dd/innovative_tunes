@@ -60,7 +60,7 @@ function MainMenu() {
     footerStyle = "footer-style3"
   }
   if (started) {
-    return (<App/>)
+    return (<App prop={style}/>)
   } else {
     //displays the contents of MainMenu3.html with some syntax tweaks to make it compatible with react
     return (

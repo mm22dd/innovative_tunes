@@ -5,25 +5,63 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
 
-function App(){
+function App({prop}){
   //function that is called when the user hits new game
   function loadTopTracks(){
     getAuthKey().then(response => setToken(response.access_token))
     let i = (Math.floor(Math.random()*100))
     getTopSongs(artistList[i], token).then(response => setTracks(response))
   }
+  function changeStyle(){
+    if (style === 1) {
+      setStyle(2)
+    } else {
+      setStyle(1)
+    }
+  }
   //state variables that when changed will trigger the page to reload with the new values
   const [artistList, setArtistList] = useState([])
   const [token, setToken] = useState("")
   const [topTracks, setTracks] = useState([])
   const [newGame, setNewGame] = useState(false)
+  const [style, setStyle] = useState(prop)
   //default content shown if nothing loads
   let content = <h1>Error</h1>
   //calls function when newGame is changed
   useEffect(() => {
     loadTopTracks()
   }, [newGame]);
-  //load the artist list might offload this to mainmenu component so it loads when start is pressed and then variable is
+  let logoImage
+  let titleImage
+  let bodyStyle
+  let headerStyle
+  let centerStyle
+  let footerStyle
+  let buttonStyle
+  let logoStyle
+  let titleStyle
+  if (style === 1) {
+    logoImage = require("./images/temp_logo_3.png")
+    titleImage = require("./images/title_logo_3.png")
+    bodyStyle = "body-style1"
+    buttonStyle = "button-style1"
+    headerStyle = "header-style1"
+    centerStyle = "center-style1"
+    logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style1"
+    footerStyle = "footer-style1"
+  } else if (style === 2) {
+    logoImage = require("./images/temp_logo_3.png")
+    titleImage = require("./images/title_logo_3.png")
+    bodyStyle = "body-style3"
+    buttonStyle = "button-style3"
+    headerStyle = "header-style3"
+    centerStyle = "center-style3"
+    logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style3"
+    footerStyle = "footer-style3"
+  }
+  //load the artist list might offload this to main menu component, so it loads when start is pressed and then variable is
   //passed into this component
   if (artistList.length === 0){
     getJSON().then(response => setArtistList(response.ID))
@@ -44,18 +82,19 @@ function App(){
   else{
     //frontend can change things here like normal html and the results will show up
     //this calls to another react component called table which is html with toptracks loaded into it
-    content = (<div className="body-style3">
-      <div className="body-style3">
-        <Table trackNames={topTracks.tracks} />
+    content = (<div className={bodyStyle}>
+      <div className={bodyStyle}>
+        <Table trackNames={topTracks.tracks} styleNumber={style} />
       </div>
-      <button className="button-style3" onClick={() => setNewGame(!newGame)}>New Game</button>
+      <button className={buttonStyle} onClick={() => setNewGame(!newGame)}>New Game</button>
+      <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
     </div>)
   }
   //return the content
   return(
     <div>
       {content}
-      <footer className="footer-style3">
+      <footer className={footerStyle}>
         © 2024 Artificial Innovators
       </footer>
     </div>
@@ -97,11 +136,41 @@ function getTopSongs(artistID, token){
     return response
 }
 //react component that loads a table with the top 10 songs very temporary needs a lot of work
-function Table({trackNames}){
+function Table({trackNames}, {styleNumber}){
+  let logoImage
+  let titleImage
+  let bodyStyle
+  let headerStyle
+  let centerStyle
+  let footerStyle
+  let buttonStyle
+  let logoStyle
+  let titleStyle
+  if (styleNumber === 1) {
+    logoImage = require("./images/temp_logo_3.png")
+    titleImage = require("./images/title_logo_3.png")
+    bodyStyle = "body-style1"
+    buttonStyle = "button-style1"
+    headerStyle = "header-style1"
+    centerStyle = "center-style1"
+    logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style1"
+    footerStyle = "footer-style1"
+  } else if (styleNumber === 2) {
+    logoImage = require("./images/temp_logo_3.png")
+    titleImage = require("./images/title_logo_3.png")
+    bodyStyle = "body-style3"
+    buttonStyle = "button-style3"
+    headerStyle = "header-style3"
+    centerStyle = "center-style3"
+    logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style3"
+    footerStyle = "footer-style3"
+  }
   return (
-    <div className="body-style3">
-      <header className="header-style3">
-        <img src={require("./images/title_logo_3.png")} alt="titlelogo" className="titlelogo-style3"/>
+    <div className={bodyStyle}>
+      <header className={headerStyle}>
+        <img src={titleImage} alt="titlelogo" className={titleStyle}/>
       </header>
       <h1>{trackNames[0].artists[0].name}</h1>
       <div className="hearts">
