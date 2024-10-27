@@ -136,7 +136,7 @@ function getTopSongs(artistID, token){
     return response
 }
 //react component that loads a table with the top 10 songs very temporary needs a lot of work
-function Table({trackNames}, {styleNumber}){
+function Table(props){
   let logoImage
   let titleImage
   let bodyStyle
@@ -146,7 +146,7 @@ function Table({trackNames}, {styleNumber}){
   let buttonStyle
   let logoStyle
   let titleStyle
-  if (styleNumber === 1) {
+  if (props.styleNumber === 1) {
     logoImage = require("./images/temp_logo_3.png")
     titleImage = require("./images/title_logo_3.png")
     bodyStyle = "body-style1"
@@ -156,7 +156,7 @@ function Table({trackNames}, {styleNumber}){
     logoStyle = "logo-style1"
     titleStyle = "titlelogo-style1"
     footerStyle = "footer-style1"
-  } else if (styleNumber === 2) {
+  } else if (props.styleNumber === 2) {
     logoImage = require("./images/temp_logo_3.png")
     titleImage = require("./images/title_logo_3.png")
     bodyStyle = "body-style3"
@@ -172,34 +172,34 @@ function Table({trackNames}, {styleNumber}){
       <header className={headerStyle}>
         <img src={titleImage} alt="titlelogo" className={titleStyle}/>
       </header>
-      <h1>{trackNames[0].artists[0].name}</h1>
+      <h1>{props.trackNames[0].artists[0].name}</h1>
       <div className="hearts">
         <img id="heart1" className="heart" src={require("./images/full_heart.png")} alt="Heart 1"/>
         <img id="heart2" className="heart" src={require("./images/full_heart.png")} alt="Heart 2"/>
         <img id="heart3" className="heart" src={require("./images/full_heart.png")} alt="Heart 3"/>
       </div>
 
-      <table className="table">
-        <tbody className="tbody">
+      <table className="Table-Data">
+        <tbody>
         <tr>
-          <td>{trackNames[0].name}</td>
-          <td>{trackNames[1].name}</td>
+          <td>{props.trackNames[0].name}</td>
+          <td>{props.trackNames[1].name}</td>
         </tr>
         <tr>
-          <td>{trackNames[2].name}</td>
-          <td>{trackNames[3].name}</td>
+          <td>{props.trackNames[2].name}</td>
+          <td>{props.trackNames[3].name}</td>
         </tr>
         <tr>
-          <td>{trackNames[4].name}</td>
-          <td>{trackNames[5].name}</td>
+          <td>{props.trackNames[4].name}</td>
+          <td>{props.trackNames[5].name}</td>
         </tr>
         <tr>
-          <td>{trackNames[6].name}</td>
-          <td>{trackNames[7].name}</td>
+          <td>{props.trackNames[6].name}</td>
+          <td>{props.trackNames[7].name}</td>
         </tr>
         <tr>
-          <td>{trackNames[8].name}</td>
-          <td>{trackNames[9].name}</td>
+          <td>{props.trackNames[8].name}</td>
+          <td>{props.trackNames[9].name}</td>
         </tr>
         </tbody>
       </table>
