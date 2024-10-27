@@ -1,18 +1,28 @@
+/* General application styles */
 .App {
   text-align: center;
 }
 
+/* Logo specific styles */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* Reduce motion preference handling */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .App-logo {
+    animation: none;
+  }
+}
+
+/* Header styles */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,10 +34,12 @@
   color: white;
 }
 
+/* Link styles */
 .App-link {
   color: #61dafb;
 }
 
+/* Define keyframes for logo spin animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,6 +48,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Table data styles */
 .Table-Data {
   margin: 0 auto;
 }
