@@ -147,8 +147,8 @@ function Table(props){
   let logoStyle
   let titleStyle
   if (props.styleNumber === 1) {
-    logoImage = require("./images/temp_logo_3.png")
-    titleImage = require("./images/title_logo_3.png")
+    logoImage = require("./images/temp_logo_1.png")
+    titleImage = require("./images/title_logo_1.png")
     bodyStyle = "body-style1"
     buttonStyle = "button-style1"
     headerStyle = "header-style1"
