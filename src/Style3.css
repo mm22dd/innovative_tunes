@@ -84,9 +84,40 @@
     color: black;
 }
 .table-style3 {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    border: 0px solid;
+    border-radius: 20px;
 }
+
+.row-style3{
+    border: solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 15px;
+    background-color: rgb(22, 195, 218);
+    text-align: center;
+    width: 400px;
+}
+
+.column-style3{
+    border: solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 15px;
+    background-color: rgb(198, 248, 255);
+    text-align: center;
+    width: 400px;
+    color: black;
+}
+
+.itemDisplayed-3{
+    border: solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 15px;
+    background: linear-gradient(rgb(75, 204, 255), rgb(0, 183, 255), rgb(32, 158, 207));
+    text-align: center;
+    width: 400px;
+    color: white;
+}
+
 .tbody {
     text-align: center;
 }

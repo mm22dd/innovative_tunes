@@ -177,7 +177,7 @@ function Table(props){
     tableStyle = "table-style3"
     rowStyle = "row-style3"
     columnStyle = "column-style3"
-    displayStyle = "itemDisplayed-1"
+    displayStyle = "itemDisplayed-3"
   }
   return (
     <div className={bodyStyle}>
@@ -209,9 +209,9 @@ function Table(props){
           <td className={columnStyle}>{props.trackNames[6].name}</td>
           <td className={columnStyle}>{props.trackNames[7].name}</td>
         </tr>
-        <tr className={displayStyle}>
+        <tr className={rowStyle}>
           <td className={columnStyle}>{props.trackNames[8].name}</td>
-          <td className={displayStyle}>{props.trackNames[9].name}</td>
+          <td className={columnStyle}>{props.trackNames[9].name}</td>
         </tr>
         </tbody>
       </table>
