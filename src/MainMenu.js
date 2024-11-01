@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import App from "./App";
 import "./Style3.css"
 import "./Style1.css"
+import axios from "axios";
 
 //credits function that can be called don't really like this as an alert but idk other options
 function credits() {
@@ -13,9 +14,11 @@ function MainMenu() {
   //started state to change render to App after play is hit
   const [started, setStarted] = useState(false)
   const [style, setStyle] = useState(1)
-
+  const [artistList, setArtistList] = useState([])
   function handleClick() {
+    getJSON().then(response => setArtistList(response.ID))
     setStarted(true)
+    getJSON().then(response => setArtistList(response.ID))
   }
 
   function changeStyle() {
@@ -26,16 +29,7 @@ function MainMenu() {
     }
   }
 
-  let text
-  let logoImage
-  let titleImage
-  let bodyStyle
-  let headerStyle
-  let centerStyle
-  let footerStyle
-  let buttonStyle
-  let logoStyle
-  let titleStyle
+  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle
   if (style === 1) {
     text = "Guess the song!"
     logoImage = require("./images/temp_logo_1.png")
@@ -55,12 +49,12 @@ function MainMenu() {
     buttonStyle = "button-style3"
     headerStyle = "header-style3"
     centerStyle = "center-style3"
-    logoStyle = "logo-style1"
+    logoStyle = "logo-style3"
     titleStyle = "titlelogo-style3"
     footerStyle = "footer-style3"
   }
   if (started) {
-    return (<App prop={style}/>)
+    return (<App styleNumber={style} artistList = {artistList}/>)
   } else {
     //displays the contents of MainMenu3.html with some syntax tweaks to make it compatible with react
     return (
@@ -96,5 +90,11 @@ function MainMenu() {
     )
   }
 }
-
+//function to read the json file
+async function getJSON() {
+  let list
+  const response = await axios.get("topArtists.json").then
+  ((Response) => list = Response.data).catch(err => console.log(err))
+  return response
+}
 export default MainMenu
