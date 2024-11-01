@@ -156,56 +156,54 @@ function getTopSongs(artistID, token){
 }
 
 function Table(props){
-  let logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle
+  let titleImage, bodyStyle, headerStyle, titleStyle, tableStyle, rowStyle, columnStyle, displayStyle
   let heart1, heart2, heart3, heart4, heart5
-  let rowOne = (<tr>
-    <td>____________</td>
-    <td>____________</td>
-  </tr>)
-  let rowTwo = (<tr>
-    <td>____________</td>
-    <td>____________</td>
-  </tr>)
-  let rowThree = (<tr>
-    <td>____________</td>
-    <td>____________</td>
-  </tr>)
-  let rowFour = (<tr>
-    <td>____________</td>
-    <td>____________</td>
-  </tr>)
-  let rowFive
   let artistName = (<h1>____________</h1>)
   if (props.styleNumber === 1) {
-    logoImage = require("./images/temp_logo_3.png")
-    titleImage = require("./images/title_logo_3.png")
+    titleImage = require("./images/title_logo_1.png")
     bodyStyle = "body-style1"
-    buttonStyle = "button-style1"
     headerStyle = "header-style1"
-    centerStyle = "center-style1"
-    logoStyle = "logo-style1"
     titleStyle = "titlelogo-style1"
-    footerStyle = "footer-style1"
+    tableStyle = "table-style1"
+    rowStyle = "row-style1"
+    columnStyle = "column-style1"
+    displayStyle = "itemDisplayed-1"
   } else if (props.styleNumber === 2) {
-    logoImage = require("./images/temp_logo_3.png")
     titleImage = require("./images/title_logo_3.png")
     bodyStyle = "body-style3"
-    buttonStyle = "button-style3"
     headerStyle = "header-style3"
-    centerStyle = "center-style3"
-    logoStyle = "logo-style1"
     titleStyle = "titlelogo-style3"
-    footerStyle = "footer-style3"
+    tableStyle = "table-style3"
+    rowStyle = "row-style3"
+    columnStyle = "column-style3"
+    displayStyle = "itemDisplayed-3"
   }
+  let rowOne = (<tr className={rowStyle}>
+    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>____________</td>
+  </tr>)
+  let rowTwo = (<tr className={rowStyle}>
+    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>____________</td>
+  </tr>)
+  let rowThree = (<tr className={rowStyle}>
+    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>____________</td>
+  </tr>)
+  let rowFour = (<tr className={rowStyle}>
+    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>____________</td>
+  </tr>)
+  let rowFive
     if (props.numGuess === 1){
       heart1 = require("./images/full_heart.png")
       heart2 = require("./images/full_heart.png")
       heart3 = require("./images/full_heart.png")
       heart4 = require("./images/full_heart.png")
       heart5 = require("./images/full_heart.png")
-      rowFive = (<tr>
-        <td>{props.trackNames[8].name}</td>
-        <td>{props.trackNames[9].name}</td>
+      rowFive = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[8].name}</td>
+        <td className={displayStyle}>{props.trackNames[9].name}</td>
       </tr>)
     }
     else if(props.numGuess === 2){
@@ -214,13 +212,13 @@ function Table(props){
       heart3 = require("./images/full_heart.png")
       heart4 = require("./images/full_heart.png")
       heart5 = require("./images/full_heart.png")
-      rowFive = (<tr>
-        <td>{props.trackNames[8].name}</td>
-        <td>{props.trackNames[9].name}</td>
+      rowFive = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[8].name}</td>
+        <td className={displayStyle}>{props.trackNames[9].name}</td>
       </tr>)
-      rowFour = (<tr>
-        <td>{props.trackNames[6].name}</td>
-        <td>{props.trackNames[7].name}</td>
+      rowFour = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[6].name}</td>
+        <td className={displayStyle}>{props.trackNames[7].name}</td>
       </tr>)
     }
     else if(props.numGuess === 3){
@@ -229,18 +227,19 @@ function Table(props){
       heart3 = require("./images/full_heart.png")
       heart4 = require("./images/full_heart.png")
       heart5 = require("./images/full_heart.png")
-      rowFive = (<tr>
-        <td>{props.trackNames[8].name}</td>
-        <td>{props.trackNames[9].name}</td>
+      rowFive = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[8].name}</td>
+        <td className={displayStyle}>{props.trackNames[9].name}</td>
       </tr>)
-      rowFour = (<tr>
-        <td>{props.trackNames[6].name}</td>
-        <td>{props.trackNames[7].name}</td>
+      rowFour = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[6].name}</td>
+        <td className={displayStyle}>{props.trackNames[7].name}</td>
       </tr>)
-      rowThree = (<tr>
-        <td>{props.trackNames[4].name}</td>
-        <td>{props.trackNames[5].name}</td>
+      rowThree = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[4].name}</td>
+        <td className={displayStyle}>{props.trackNames[5].name}</td>
       </tr>)
+
     }
     else if(props.numGuess === 4){
       heart1 = require("./images/empty_heart.png")
@@ -248,21 +247,21 @@ function Table(props){
       heart3 = require("./images/empty_heart.png")
       heart4 = require("./images/full_heart.png")
       heart5 = require("./images/full_heart.png")
-      rowFive = (<tr>
-        <td>{props.trackNames[8].name}</td>
-        <td>{props.trackNames[9].name}</td>
+      rowFive = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[8].name}</td>
+        <td className={displayStyle}>{props.trackNames[9].name}</td>
       </tr>)
-      rowFour = (<tr>
-        <td>{props.trackNames[6].name}</td>
-        <td>{props.trackNames[7].name}</td>
+      rowFour = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[6].name}</td>
+        <td className={displayStyle}>{props.trackNames[7].name}</td>
       </tr>)
-      rowThree = (<tr>
-        <td>{props.trackNames[4].name}</td>
-        <td>{props.trackNames[5].name}</td>
+      rowThree = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[4].name}</td>
+        <td className={displayStyle}>{props.trackNames[5].name}</td>
       </tr>)
-      rowTwo = (<tr>
-        <td>{props.trackNames[2].name}</td>
-        <td>{props.trackNames[3].name}</td>
+      rowTwo = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[2].name}</td>
+        <td className={displayStyle}>{props.trackNames[3].name}</td>
       </tr>)
     }
     else if(props.numGuess === 5){
@@ -271,25 +270,25 @@ function Table(props){
       heart3 = require("./images/empty_heart.png")
       heart4 = require("./images/empty_heart.png")
       heart5 = require("./images/full_heart.png")
-      rowFive = (<tr>
-        <td>{props.trackNames[8].name}</td>
-        <td>{props.trackNames[9].name}</td>
+      rowFive = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[8].name}</td>
+        <td className={displayStyle}>{props.trackNames[9].name}</td>
       </tr>)
-      rowFour = (<tr>
-        <td>{props.trackNames[6].name}</td>
-        <td>{props.trackNames[7].name}</td>
+      rowFour = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[6].name}</td>
+        <td className={displayStyle}>{props.trackNames[7].name}</td>
       </tr>)
-      rowThree = (<tr>
-        <td>{props.trackNames[4].name}</td>
-        <td>{props.trackNames[5].name}</td>
+      rowThree = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[4].name}</td>
+        <td className={displayStyle}>{props.trackNames[5].name}</td>
       </tr>)
-      rowTwo = (<tr>
-        <td>{props.trackNames[2].name}</td>
-        <td>{props.trackNames[3].name}</td>
+      rowTwo = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[2].name}</td>
+        <td className={displayStyle}>{props.trackNames[3].name}</td>
       </tr>)
-      rowOne = (<tr>
-        <td>{props.trackNames[0].name}</td>
-        <td>{props.trackNames[1].name}</td>
+      rowOne = (<tr className={displayStyle}>
+        <td className={displayStyle}>{props.trackNames[0].name}</td>
+        <td className={displayStyle}>{props.trackNames[1].name}</td>
       </tr>)
     }
   return (
@@ -306,7 +305,7 @@ function Table(props){
         <img id="heart5" className="heart" src={heart5} alt="Heart 5"/>
       </div>
 
-      <table className="Table-Data">
+      <table className={tableStyle}>
         <tbody>
         {rowOne}
         {rowTwo}
