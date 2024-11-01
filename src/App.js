@@ -146,6 +146,10 @@ function Table(props){
   let buttonStyle
   let logoStyle
   let titleStyle
+  let tableStyle
+  let rowStyle
+  let columnStyle
+  let displayStyle
   if (props.styleNumber === 1) {
     logoImage = require("./images/temp_logo_1.png")
     titleImage = require("./images/title_logo_1.png")
@@ -156,6 +160,10 @@ function Table(props){
     logoStyle = "logo-style1"
     titleStyle = "titlelogo-style1"
     footerStyle = "footer-style1"
+    tableStyle = "table-style1"
+    rowStyle = "row-style1"
+    columnStyle = "column-style1"
+    displayStyle = "itemDisplayed-1"
   } else if (props.styleNumber === 2) {
     logoImage = require("./images/temp_logo_3.png")
     titleImage = require("./images/title_logo_3.png")
@@ -166,6 +174,10 @@ function Table(props){
     logoStyle = "logo-style1"
     titleStyle = "titlelogo-style3"
     footerStyle = "footer-style3"
+    tableStyle = "table-style3"
+    rowStyle = "row-style3"
+    columnStyle = "column-style3"
+    displayStyle = "itemDisplayed-1"
   }
   return (
     <div className={bodyStyle}>
@@ -179,27 +191,27 @@ function Table(props){
         <img id="heart3" className="heart" src={require("./images/full_heart.png")} alt="Heart 3"/>
       </div>
 
-      <table className="Table-Data">
+      <table className={tableStyle}>
         <tbody>
-        <tr>
-          <td>{props.trackNames[0].name}</td>
-          <td>{props.trackNames[1].name}</td>
+        <tr className={rowStyle}>
+          <td className={columnStyle}>{props.trackNames[0].name}</td>
+          <td className={columnStyle}>{props.trackNames[1].name}</td>
         </tr>
-        <tr>
-          <td>{props.trackNames[2].name}</td>
-          <td>{props.trackNames[3].name}</td>
+        <tr className={rowStyle}>
+          <td className={columnStyle}>{props.trackNames[2].name}</td>
+          <td className={columnStyle}>{props.trackNames[3].name}</td>
         </tr>
-        <tr>
-          <td>{props.trackNames[4].name}</td>
-          <td>{props.trackNames[5].name}</td>
+        <tr className={rowStyle}>
+          <td className={columnStyle}>{props.trackNames[4].name}</td>
+          <td className={columnStyle}>{props.trackNames[5].name}</td>
         </tr>
-        <tr>
-          <td>{props.trackNames[6].name}</td>
-          <td>{props.trackNames[7].name}</td>
+        <tr className={rowStyle}>
+          <td className={columnStyle}>{props.trackNames[6].name}</td>
+          <td className={columnStyle}>{props.trackNames[7].name}</td>
         </tr>
-        <tr>
-          <td>{props.trackNames[8].name}</td>
-          <td>{props.trackNames[9].name}</td>
+        <tr className={displayStyle}>
+          <td className={columnStyle}>{props.trackNames[8].name}</td>
+          <td className={displayStyle}>{props.trackNames[9].name}</td>
         </tr>
         </tbody>
       </table>

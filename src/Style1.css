@@ -72,3 +72,37 @@
     text-align: center;
     color: black;
 }
+
+.table-style1 {
+    margin: 0 auto;
+    border: 0px solid;
+    border-radius: 20px;
+}
+
+.row-style1{
+    border: solid black;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: gray;
+    text-align: center;
+    width: 300px;
+}
+
+.column-style1{
+    border: solid black;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #999898;
+    text-align: center;
+    width: 400px;
+}
+
+.itemDisplayed-1{
+    border: solid black;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: lime;
+    text-align: center;
+    color: black;
+    width: 400px;
+}
