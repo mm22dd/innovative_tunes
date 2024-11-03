@@ -53,3 +53,19 @@
 .Table-Data {
   margin: 0 auto;
 }
+
+input {
+  padding: 10px;
+  padding-left: 10px;
+  font-size: 24px;
+  font-family: Copperplate;
+  border: 2px solid white;
+  border-radius: 36px 0 0 36px;
+  width: 500px;
+  box-sizing: border-box;
+
+}
+
+.content-wrap {
+  flex: 1;
+}

@@ -7,7 +7,7 @@
 /*Provides background color for whole page*/
 
 .header-style3 {
-    background: url('images/header200px.png') repeat-x center top;
+    background: url('images/header_stripes_3.png') repeat-x center top;
     background-size: auto;
     background-color: #6dc9fd; /* background color */
     height: 20vh; /* Adjust the height as needed */
@@ -41,9 +41,9 @@
 .h1-style3 {
     text-align: center;
     font-family: impact;
-    font-size: 48px;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
-    color: white;
+    font-size: 60px;
+    margin-top: 50px;
+    margin-bottom: 80px;
 }
 /*Formats for large headers. We can add different formats for h2, h3, etc or use IDs to format specific text*/
 
@@ -78,10 +78,14 @@
 /*For use in center aligning. Not sure if it's working or not though...*/
 
 .footer-style3 {
-    font-size: 12px;
+    font-size: 20px;
+    margin-bottom: 10px;
     position: relative;
     text-align: center;
-    color: black;
+    color: white;
+    flex-shrink: 0; /* Ensures the footer stays at the bottom */
+    text-align: center;
+    /* Additional footer styling */
 }
 .table-style3 {
     margin: 0 auto;
@@ -121,3 +125,26 @@
 .tbody {
     text-align: center;
 }
+
+.guess_style_3 {
+    text-align: center;
+    padding: 10px 40px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background: linear-gradient(0deg, #ACDAFF, #76C2FF, #ACDAFF);
+    color: white;
+    font-size: 24px;
+    font-family: Copperplate;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 0 36px 36px 0;
+    transition: background 0.3s, transform 0.2s;
+    transition-duration: 0.2s;
+}
+
+.app_container_3 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #6dc9fd;
+  }

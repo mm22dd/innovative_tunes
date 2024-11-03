@@ -1,5 +1,6 @@
 import './App.css';
 import './Style3.css'
+import './Style1.css'
 import './Game_style.css'
 import axios from "axios";
 import React, {useEffect, useState} from "react";
@@ -39,7 +40,7 @@ function App(props){
     setNumGuess(numGuess+1)
   }
 
-  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle
+  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, guessStyle, appContainer
   if (style === 1) {
     text = "Guess the song!"
     logoImage = require("./images/temp_logo_3.png")
@@ -51,6 +52,8 @@ function App(props){
     logoStyle = "logo-style1"
     titleStyle = "titlelogo-style1"
     footerStyle = "footer-style1"
+    guessStyle = "guess_style_1"
+    appContainer = "app_container_1"
   } else if (style === 2) {
     text = "曲を推測します~!"
     logoImage = require("./images/temp_logo_3.png")
@@ -62,6 +65,8 @@ function App(props){
     logoStyle = "logo-style1"
     titleStyle = "titlelogo-style3"
     footerStyle = "footer-style3"
+    guessStyle = "guess_style_3"
+    appContainer = "app_container_3"
   }
   //default content shown if nothing loads
   let content = <h1>Error</h1>
@@ -94,16 +99,19 @@ function App(props){
       </div>)
     }
     else if (numGuess <= 5){
-      content = (<div className={bodyStyle}>
+      content = 
+      (<div className={bodyStyle}>
         <div className={bodyStyle}>
           <Table trackNames={topTracks.tracks} styleNumber={style} numGuess = {numGuess} guess = {guess}/>
         </div>
-        <form className={centerStyle} onSubmit={handleGuess}>
-          <label>
-            <input name="guess"/>
-          </label>
-          <button type="submit">Submit</button>
-        </form>
+        <div class = "container">
+          <form className={centerStyle} style={{ marginTop: '20px' }} onSubmit={handleGuess}>
+            <label>
+              <input name="guess" placeholder='Artist name'/>
+            </label>
+            <button type="submit" className={guessStyle}>Guess!</button>
+          </form>
+        </div>
         <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
         <button className={buttonStyle} onClick={() => setNewGame(!newGame)}>New Game</button>
       </div>)
@@ -120,13 +128,15 @@ function App(props){
   }
   //return the content
   return (
-    <div>
-      {content}
+    <div className={appContainer}>
+      <div className="content-wrap">
+        {content}
+      </div>
       <footer className={footerStyle}>
         © 2024 Artificial Innovators
       </footer>
     </div>
-  )
+  );
 }
 
 //function for getting a token from the spotify API
@@ -186,20 +196,20 @@ function Table(props){
     emptyHeartStyle = require("./images/empty_heart_3.png")
   }
   let rowOne = (<tr className={rowStyle}>
-    <td className={columnStyle}>____________</td>
-    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>♪</td>
+    <td className={columnStyle}>♪</td>
   </tr>)
   let rowTwo = (<tr className={rowStyle}>
-    <td className={columnStyle}>____________</td>
-    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>♪</td>
+    <td className={columnStyle}>♪</td>
   </tr>)
   let rowThree = (<tr className={rowStyle}>
-    <td className={columnStyle}>____________</td>
-    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>♪</td>
+    <td className={columnStyle}>♪</td>
   </tr>)
   let rowFour = (<tr className={rowStyle}>
-    <td className={columnStyle}>____________</td>
-    <td className={columnStyle}>____________</td>
+    <td className={columnStyle}>♪</td>
+    <td className={columnStyle}>♪</td>
   </tr>)
   let rowFive
     if (props.numGuess === 1){
@@ -303,7 +313,6 @@ function Table(props){
       <header className={headerStyle}>
         <img src={titleImage} alt="titlelogo" className={titleStyle}/>
       </header>
-      <h1>{artistName}</h1>
       <div className="hearts">
         <img id="heart1" className="heart" src={heart1} alt="Heart 1"/>
         <img id="heart2" className="heart" src={heart2} alt="Heart 2"/>

@@ -1,17 +1,17 @@
-.body-style1 {
-    background-color: lightgrey;
+.body-style2 {
+    background-color: #030A40;
     text-align: center;
 }
-.header-style1 {
-    background: url('images/header_stripes_1.png') repeat-x center top;
+.header-style2 {
+    background: url('images/header_stripes_2.png') repeat-x center top;
     background-size: auto;
-    background-color: lightgrey; /* background color */
+    background-color: #030A40; /* background color */
     height: 20vh; /* Adjust the height as needed */
     margin: 0;
     padding: 0;
 }
 /*Provides background color for whole page*/
-.titlelogo-style1 {
+.titlelogo-style2 {
     position: absolute;
     top: 5%; /* vertical position of the logo */
     left: 50%; /* horizontal position of the logo */
@@ -19,7 +19,7 @@
     width: 500px; /* size */
     height: auto; /* aspect ratio */
 }
-.logo-style1 {
+.logo-style2 {
     display: block;
     margin: 0 auto; /* Centers the logo horizontally */
     margin-top: 20px; /* Adjusts spacing between header and logo */
@@ -28,7 +28,7 @@
 }
 /* Style for the logo underneath the header */
 
-.h1-style1 {
+.h1-style2 {
     text-align: center;
     font-family: impact;
     font-size: 60px;
@@ -37,81 +37,81 @@
 }
 /*Formats for large headers. We can add different formats for h2, h3, etc or use IDs to format specific text*/
 
-.button-style1 {
+.button-style2 {
     text-align: center;
     padding: 20px 80px; /*Defines button size*/
     margin: 4px 2px; /*Defines space between buttons*/
     cursor: pointer;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 24px;
     font-family: Copperplate;
     font-weight: bold;
-    border: 2px solid black;
+    border: 2px solid #0049FF;
     border-radius: 36px; /*Gives buttons a rounded shape*/
     transition: background 0.3s, transform 0.2s;
     transition-duration: 0.2s;
 }
 /*Gives some formatting for simple buttons. Most should be self explanatory*/
 
-.button-style1:hover {
-    background-color: lime;
+.button-style2:hover {
+    background-color: #B6B2FF;
     color: black;
 }
 /*Changes color of buttons when hovering over them*/
 
-.center-style1 {
+.center-style2 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 /*For use in center aligning. Not sure if it's working or not though...*/
 
-.footer-style1 {
+.footer-style2 {
     font-size: 20px;
     margin-bottom: 10px;
     position: relative;
     text-align: center;
-    color: black;
+    color: white;
     flex-shrink: 0;
     text-align: center;
 }
 
-.table-style1 {
+.table-style2 {
     margin: 0 auto;
     border: 0px solid;
     border-radius: 20px;
 }
 
-.row-style1{
-    border: solid black;
+.row-style2{
+    border: solid #0049FF;
     border-radius: 20px;
     padding: 15px;
-    background-color: gray;
+    background-color: #030A40;
     text-align: center;
     width: 300px;
 }
 
-.column-style1{
-    border: solid black;
+.column-style2{
+    border: solid #0049FF;
     border-radius: 20px;
     padding: 15px;
-    background-color: #999898;
+    background-color: #030A40;
     text-align: center;
     width: 400px;
 }
 
-.itemDisplayed-1{
-    border: solid black;
+.itemDisplayed-2{
+    border: solid #0049FF;
     border-radius: 20px;
     padding: 15px;
-    background-color: lime;
+    background-color: #B6B2FF;
     text-align: center;
     color: black;
     width: 400px;
 }
 
-.guess_style_1 {
+.guess_style_2 {
     text-align: center;
     padding: 10px 40px;
     margin: 4px 2px;
@@ -121,15 +121,15 @@
     font-size: 24px;
     font-family: Copperplate;
     font-weight: bold;
-    border: 2px solid black;
+    border: 2px solid #0049FF;
     border-radius: 0 36px 36px 0;
     transition: background 0.3s, transform 0.2s;
     transition-duration: 0.2s;
 }
 
-.app_container_1 {
+.app_container_2 {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: lightgrey;
+    background-color: #030A40;
   }

@@ -29,9 +29,9 @@ function MainMenu() {
     }
   }
 
-  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle
+  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, appContainer
   if (style === 1) {
-    text = "Guess the song!"
+    text = "Guess the artist!"
     logoImage = require("./images/temp_logo_1.png")
     titleImage = require("./images/title_logo_1.png")
     bodyStyle = "body-style1"
@@ -41,6 +41,7 @@ function MainMenu() {
     logoStyle = "logo-style1"
     titleStyle = "titlelogo-style1"
     footerStyle = "footer-style1"
+    appContainer = "app_container_1"
   } else if (style === 2) {
     text = "曲を推測します~!"
     logoImage = require("./images/temp_logo_3.png")
@@ -52,12 +53,14 @@ function MainMenu() {
     logoStyle = "logo-style3"
     titleStyle = "titlelogo-style3"
     footerStyle = "footer-style3"
+    appContainer = "app_container_3"
   }
   if (started) {
     return (<App styleNumber={style} artistList = {artistList}/>)
   } else {
     //displays the contents of MainMenu3.html with some syntax tweaks to make it compatible with react
     return (
+      <div className={appContainer}>
       <body className={bodyStyle}>
 
       <header className={headerStyle}>
@@ -87,6 +90,7 @@ function MainMenu() {
         © 2024 Artificial Innovators
       </footer>
       </body>
+      </div>
     )
   }
 }
