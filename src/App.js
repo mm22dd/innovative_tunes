@@ -16,9 +16,11 @@ function App(props){
     setNumGuess(1)
   }
   
-  function changeStyle(){
+  function changeStyle() {
     if (style === 1) {
       setStyle(2)
+    } else if (style === 2) {
+      setStyle(3)
     } else {
       setStyle(1)
     }
@@ -43,8 +45,8 @@ function App(props){
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, guessStyle, appContainer
   if (style === 1) {
     text = "Guess the song!"
-    logoImage = require("./images/temp_logo_3.png")
-    titleImage = require("./images/title_logo_3.png")
+    logoImage = require("./images/temp_logo_1.png")
+    titleImage = require("./images/title_logo_1.png")
     bodyStyle = "body-style1"
     buttonStyle = "button-style1"
     headerStyle = "header-style1"
@@ -55,6 +57,19 @@ function App(props){
     guessStyle = "guess_style_1"
     appContainer = "app_container_1"
   } else if (style === 2) {
+    text = "Guess the song!"
+    logoImage = require("./images/temp_logo_2.png")
+    titleImage = require("./images/title_logo_2.png")
+    bodyStyle = "body-style2"
+    buttonStyle = "button-style2"
+    headerStyle = "header-style2"
+    centerStyle = "center-style2"
+    logoStyle = "logo-style1"
+    titleStyle = "titlelogo-style2"
+    footerStyle = "footer-style2"
+    guessStyle = "guess_style_2"
+    appContainer = "app_container_2"
+  } else if (style === 3 ) {
     text = "曲を推測します~!"
     logoImage = require("./images/temp_logo_3.png")
     titleImage = require("./images/title_logo_3.png")
@@ -184,17 +199,28 @@ function Table(props){
     heartStyle = require("./images/full_heart_1.png")
     emptyHeartStyle = require("./images/empty_heart_1.png")
   } else if (props.styleNumber === 2) {
-    titleImage = require("./images/title_logo_3.png")
-    bodyStyle = "body-style3"
-    headerStyle = "header-style3"
-    titleStyle = "titlelogo-style3"
-    tableStyle = "table-style3"
-    rowStyle = "row-style3"
-    columnStyle = "column-style3"
-    displayStyle = "itemDisplayed-3"
-    heartStyle = require("./images/full_heart_3.png")
+    titleImage = require("./images/title_logo_2.png")
+    bodyStyle = "body-style2"
+    headerStyle = "header-style2"
+    titleStyle = "titlelogo-style2"
+    tableStyle = "table-style2"
+    rowStyle = "row-style2"
+    columnStyle = "column-style2"
+    displayStyle = "itemDisplayed-2"
+    heartStyle = require("./images/full_heart_2.png")
     emptyHeartStyle = require("./images/empty_heart_3.png")
-  }
+  } else if (props.styleNumber === 3) {
+  titleImage = require("./images/title_logo_3.png")
+  bodyStyle = "body-style3"
+  headerStyle = "header-style3"
+  titleStyle = "titlelogo-style3"
+  tableStyle = "table-style3"
+  rowStyle = "row-style3"
+  columnStyle = "column-style3"
+  displayStyle = "itemDisplayed-3"
+  heartStyle = require("./images/full_heart_3.png")
+  emptyHeartStyle = require("./images/empty_heart_3.png")
+}
   let rowOne = (<tr className={rowStyle}>
     <td className={columnStyle}>♪</td>
     <td className={columnStyle}>♪</td>

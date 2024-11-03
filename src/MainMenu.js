@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import App from "./App";
 import "./Style3.css"
+import "./Style2.css"
 import "./Style1.css"
 import axios from "axios";
 
@@ -24,6 +25,8 @@ function MainMenu() {
   function changeStyle() {
     if (style === 1) {
       setStyle(2)
+    } else if (style === 2) {
+      setStyle(3)
     } else {
       setStyle(1)
     }
@@ -43,6 +46,18 @@ function MainMenu() {
     footerStyle = "footer-style1"
     appContainer = "app_container_1"
   } else if (style === 2) {
+    text = "Guess the artist!"
+    logoImage = require("./images/temp_logo_2.png")
+    titleImage = require("./images/title_logo_2.png")
+    bodyStyle = "body-style2"
+    buttonStyle = "button-style2"
+    headerStyle = "header-style2"
+    centerStyle = "center-style2"
+    logoStyle = "logo-style2"
+    titleStyle = "titlelogo-style2"
+    footerStyle = "footer-style2"
+    appContainer = "app_container_2"
+  } else if (style === 3) {
     text = "曲を推測します~!"
     logoImage = require("./images/temp_logo_3.png")
     titleImage = require("./images/title_logo_3.png")
