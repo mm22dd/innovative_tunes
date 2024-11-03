@@ -169,7 +169,7 @@ function Table(props){
     columnStyle = "column-style1"
     displayStyle = "itemDisplayed-1"
     heartStyle = require("./images/full_heart_1.png")
-    emptyHeartStyle = require("./images/empty_heart.png")
+    emptyHeartStyle = require("./images/empty_heart_1.png")
   } else if (props.styleNumber === 2) {
     titleImage = require("./images/title_logo_3.png")
     bodyStyle = "body-style3"
@@ -180,7 +180,7 @@ function Table(props){
     columnStyle = "column-style3"
     displayStyle = "itemDisplayed-3"
     heartStyle = require("./images/full_heart_3.png")
-    emptyHeartStyle = require("./images/empty_heart.png")
+    emptyHeartStyle = require("./images/empty_heart_3.png")
   }
   let rowOne = (<tr className={rowStyle}>
     <td className={columnStyle}>____________</td>
