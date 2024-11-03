@@ -6,6 +6,7 @@ import React, {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
 
 function App(props){
+
   //function that is called when the user hits new game
   function loadTopTracks(){
     getAuthKey().then(response => setToken(response.access_token))
@@ -13,6 +14,7 @@ function App(props){
     getTopSongs(props.artistList[i], token).then(response => setTracks(response))
     setNumGuess(1)
   }
+  
   function changeStyle(){
     if (style === 1) {
       setStyle(2)
@@ -25,7 +27,7 @@ function App(props){
   const [token, setToken] = useState("")
   const [topTracks, setTracks] = useState([])
   const [newGame, setNewGame] = useState(false)
-  const [style, setStyle] = useState(1)
+  const [style, setStyle] = useState(props.styleNumber)
   const [guess, setGuess] = useState("")
   const [numGuess, setNumGuess] = useState(1)
   function handleGuess(e){
@@ -36,6 +38,7 @@ function App(props){
     setGuess(formObject.guess)
     setNumGuess(numGuess+1)
   }
+
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle
   if (style === 1) {
     text = "Guess the song!"
