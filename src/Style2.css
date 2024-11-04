@@ -1,5 +1,4 @@
 .body-style2 {
-    background-color: #030A40;
     color: white;
     text-align: center;
 }
@@ -137,5 +136,5 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #030A40;
+    background: linear-gradient(to bottom right, #030A40 75%, #af40b5 120%);
   }

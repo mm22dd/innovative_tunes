@@ -1,6 +1,5 @@
 .body-style3 {
     text-align: center;
-    background-color: #6dc9fd;
     color: white;
     margin: 0;
     padding: 0;
@@ -153,5 +152,5 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #6dc9fd;
+    background: linear-gradient(to bottom right, #6dc9fd 75%, white 100%);
   }
