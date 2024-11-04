@@ -1,6 +1,7 @@
 .body-style3 {
     text-align: center;
     background-color: #6dc9fd;
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -141,6 +142,12 @@
     transition: background 0.3s, transform 0.2s;
     transition-duration: 0.2s;
 }
+
+.guess_style_3:hover {
+    background: linear-gradient(0deg, #5A8CFF, #4063B5, #5A8CFF);
+    color: white;
+}
+/*Changes color of buttons when hovering over them*/
 
 .app_container_3 {
     min-height: 100vh;

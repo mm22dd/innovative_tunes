@@ -127,6 +127,11 @@
     transition-duration: 0.2s;
 }
 
+.guess_style_1:hover {
+    background-color: lime;
+    color: black;
+}
+
 .app_container_1 {
     min-height: 100vh;
     display: flex;

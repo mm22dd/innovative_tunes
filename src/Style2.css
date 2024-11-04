@@ -43,8 +43,8 @@
     padding: 20px 80px; /*Defines button size*/
     margin: 4px 2px; /*Defines space between buttons*/
     cursor: pointer;
-    background-color: white;
-    color: black;
+    background: linear-gradient(0deg, #3217ff, #090088, #3217ff);
+    color: white;
     font-size: 24px;
     font-family: Copperplate;
     font-weight: bold;
@@ -56,8 +56,8 @@
 /*Gives some formatting for simple buttons. Most should be self explanatory*/
 
 .button-style2:hover {
-    background-color: #B6B2FF;
-    color: black;
+    background: linear-gradient(0deg, #3217ff, #af40b5, #3217ff);
+    color: white;
 }
 /*Changes color of buttons when hovering over them*/
 
@@ -117,7 +117,7 @@
     padding: 10px 40px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: black;
+    background: linear-gradient(0deg, #3217ff, #090088, #3217ff);
     color: white;
     font-size: 24px;
     font-family: Copperplate;
@@ -126,6 +126,11 @@
     border-radius: 0 36px 36px 0;
     transition: background 0.3s, transform 0.2s;
     transition-duration: 0.2s;
+}
+
+.guess_style_2:hover {
+    background: linear-gradient(0deg, #3217ff, #af40b5, #3217ff);
+    color: white;
 }
 
 .app_container_2 {
