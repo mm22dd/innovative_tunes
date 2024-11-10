@@ -33,6 +33,10 @@ function App(props){
   const [style, setStyle] = useState(props.styleNumber)
   const [guess, setGuess] = useState("")
   const [numGuess, setNumGuess] = useState(1)
+  const [txt, setTxt] = useState("")
+  function updateTxt(e){
+    setTxt(e.target.value)
+  }
   function handleGuess(e){
     e.preventDefault()
     const form = e.target
@@ -40,6 +44,7 @@ function App(props){
     let formObject = Object.fromEntries(formData.entries())
     setGuess(formObject.guess)
     setNumGuess(numGuess+1)
+    setTxt("")
   }
 
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, guessStyle, appContainer
@@ -122,7 +127,7 @@ function App(props){
         <div class = "container">
           <form className={centerStyle} style={{ marginTop: '20px' }} onSubmit={handleGuess}>
             <label>
-              <input name="guess" placeholder='Artist name'/>
+              <input name="guess" placeholder='Artist name' value={txt} onChange={updateTxt}/>
             </label>
             <button type="submit" className={guessStyle}>Guess!</button>
           </form>
