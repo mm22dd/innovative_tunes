@@ -1,26 +1,26 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import App from "./App";
 import "./Style3.css"
 import "./Style2.css"
 import "./Style1.css"
-import "./Popup.css"
-import Popup from './Popup.js'
 import axios from "axios";
 
+//credits function that can be called don't really like this as an alert but idk other options
+function credits() {
+  alert("Credits\nFront End: Miguel Machado, Jonathan Whelan\nBack End: Joseph Bustamante, Adam Crump, Andrew Mack");
+}
 
 //creation of main menu component
-function MainMenu() {
+function MainMenu(props) {
   //started state to change render to App after play is hit
   const [started, setStarted] = useState(false)
-  const [style, setStyle] = useState(1)
+  const [style, setStyle] = useState(props.style)
   const [artistList, setArtistList] = useState([])
-  const [buttonPopup, setButtonPopup] = useState(false)
   function handleClick() {
     getJSON().then(response => setArtistList(response.ID))
     setStarted(true)
     getJSON().then(response => setArtistList(response.ID))
   }
-
   function changeStyle() {
     if (style === 1) {
       setStyle(2)
@@ -31,8 +31,13 @@ function MainMenu() {
     }
   }
 
-  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, appContainer, popup
-  popup = "popup"
+  useEffect(() => {
+    if (props.style === undefined){
+      setStyle(1)
+    }
+    return
+  }, []);
+  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, appContainer
   if (style === 1) {
     text = "Guess the artist!"
     logoImage = require("./images/temp_logo_1.png")
@@ -97,14 +102,7 @@ function MainMenu() {
 
 
       <div className={centerStyle}>
-        <button className={buttonStyle} onClick={() => setButtonPopup(true)}>Credits</button>
-
-        <Popup className={popup} trigger={buttonPopup} setTrigger={setButtonPopup}>
-          <h2>Credits</h2>
-          <p>Front End: Miguel Machado, Jonathan Whelan</p>
-          <p>Back End: Joseph Bustamante, Adam Crump, Andrew Mack</p>
-          <button className={buttonStyle} onClick={() => setButtonPopup(false)}>Close</button>
-        </Popup>
+        <button className={buttonStyle} onClick={credits}>Credits</button>
       </div>
 
 
