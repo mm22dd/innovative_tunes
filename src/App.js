@@ -10,7 +10,7 @@ import {wait} from "@testing-library/user-event/dist/utils";
 
 function App(props){
   //state variables that when changed will trigger the page to reload with the new values
-  const [token, setToken] = useState("")
+  const [token, setToken] = useState("start")
   const [topTracks, setTracks] = useState([])
   const [newGame, setNewGame] = useState(false)
   const [style, setStyle] = useState(props.styleNumber)
@@ -18,7 +18,7 @@ function App(props){
   const [numGuess, setNumGuess] = useState(1)
   const [txt, setTxt] = useState("")
   const [lives, setLives] = useState(5)
-  const [artist, setArtist] = useState("")
+  const [artist, setArtist] = useState("first")
   const [score, setScore] = useState(0)
   const [quit, setQuit] = useState(false)
   const [index, setIndex] = useState(-1)
@@ -153,39 +153,24 @@ function App(props){
   //default content shown if nothing loads
   let content = <h1>Error</h1>
   //calls function when newGame is changed
-  useEffect(() => {
-    loadTopTracks()
-  }, [newGame]);
   //get token to start
-  if(token === ""){
-    getAuthKey().then(response => setToken(response.access_token))
-    return
-  }
-  //call the api and then load the top 10 songs into the state variable
-  else if(topTracks === undefined){
-    let i = (Math.floor(Math.random()*100))
-    getTopSongs(props.artistList[i], token).then(response => setTracks(response))
-    getArtist(props.artistList[i], token).then(response => setArtist(response))
-    return
-  }
-  else if(quit === true){
+  if(quit === true){
     return (<MainMenu style={style}/>)
+  }
+  if (token === "start"){
+    getAuthKey().then(response => setToken(response.access_token))
+    return <>Loading...</>
+  }
+  else if(topTracks === undefined){
+    getTopSongs(props.artistList[index], token).then(response => setTracks(response))
+    return <>Loading...</>
+  }
+  else if(artist === undefined){
+    getArtist(props.artistList[index], token).then(response => setArtist(response))
+    return <>Loading...</>
   }
   //once all data is loaded in start to show the data
   else{
-    if (token === ""){
-      getAuthKey().then(response => setToken(response.access_token))
-    }
-    else if(index === -1){
-      let i = (Math.floor(Math.random()*100))
-      setIndex(i)
-    }
-    else if(topTracks.tracks === undefined){
-      getTopSongs(props.artistList[index], token).then(response => setTracks(response))
-    }
-    else if(artist === ""){
-      getArtist(props.artistList[index], token).then(response => setArtist(response))
-    }
     if (guess === artist.name){
       content =
         (<div className={bodyStyle}>
@@ -204,7 +189,7 @@ function App(props){
         </div>)
     }
     else if (numGuess <= 5){
-      content = 
+      content =
       (<div className={bodyStyle}>
         <div>
           <header className={headerStyle}>
