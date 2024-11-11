@@ -102,7 +102,9 @@ function App(props){
     return
   }, []);
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle,
-    guessStyle, appContainer, heartStyle, emptyHeartStyle
+    guessStyle, appContainer, heartStyle, emptyHeartStyle, vert, big
+    vert = "vert"
+    big = "bigFont"
   if (style === 1) {
     text = "Guess the song!"
     logoImage = require("./images/temp_logo_1.png")
@@ -251,12 +253,19 @@ function App(props){
       //game over section
       else{
         content = (<div className={bodyStyle}>
-          <div className={bodyStyle}>
-            <h1>Game Over</h1>
-            <h2>Final Score: {score}</h2>
+          <div>
+              <header className={headerStyle}>
+                <img src={titleImage} alt="titlelogo" className={titleStyle}/>
+              </header>
           </div>
-          <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
-          <button className={buttonStyle} onClick={restart}>Try Again</button>
+          <div className={vert}>
+            <div className={bodyStyle}>
+              <h1 className={big}>Game Over!</h1>
+              <h2>Final Score: {score}</h2>
+            </div>
+            <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
+            <button className={buttonStyle} onClick={restart}>Try Again</button>
+          </div>
         </div>)
       }
     }
