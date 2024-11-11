@@ -153,6 +153,9 @@ function App(props){
   //default content shown if nothing loads
   let content = <h1>Error</h1>
   //calls function when newGame is changed
+  useEffect(() => {
+    loadTopTracks()
+  }, [newGame]);
   //get token to start
   if(token === ""){
     getAuthKey().then(response => setToken(response.access_token))
@@ -166,7 +169,7 @@ function App(props){
     return
   }
   else if(quit === true){
-    return (<MainMenu />)
+    return (<MainMenu style={style}/>)
   }
   //once all data is loaded in start to show the data
   else{
@@ -247,16 +250,16 @@ function App(props){
             <button className={buttonStyle} onClick={fail}>Continue</button>
           </div>)
       }
+      //game over section
       else{
-        content = (
+        content = (<div className={bodyStyle}>
           <div className={bodyStyle}>
-            <header className={headerStyle}>
-              <img src={titleImage} alt="titlelogo" className={titleStyle}/>
-            </header>
-            <GameOver score={score} styleNumber={style}/>
-            <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
-            <button className={buttonStyle} onClick={restart}>Try Again</button>
-          </div>)
+            <h1>Game Over</h1>
+            <h2>Final Score: {score}</h2>
+          </div>
+          <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
+          <button className={buttonStyle} onClick={restart}>Try Again</button>
+        </div>)
       }
     }
   }
@@ -458,73 +461,6 @@ function Hearts(props){
       <img className="heart" src={hearts[2]} alt="Heart 3"/>
       <img className="heart" src={hearts[3]} alt="Heart 4"/>
       <img className="heart" src={hearts[4]} alt="Heart 5"/>
-    </div>
-  )
-}
-//game over screen
-function GameOver(props) {
-  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle,
-    guessStyle, appContainer, heartStyle, emptyHeartStyle
-  let heart1, heart2, heart3, heart4, heart5
-  if (props.style === 1) {
-    text = "Guess the song!"
-    logoImage = require("./images/temp_logo_1.png")
-    titleImage = require("./images/title_logo_1.png")
-    bodyStyle = "body-style1"
-    buttonStyle = "button-style1"
-    headerStyle = "header-style1"
-    centerStyle = "center-style1"
-    logoStyle = "logo-style1"
-    titleStyle = "titlelogo-style1"
-    footerStyle = "footer-style1"
-    guessStyle = "guess_style_1"
-    appContainer = "app_container_1"
-    heartStyle = require("./images/full_heart_1.png")
-    emptyHeartStyle = require("./images/empty_heart_1.png")
-  } else if (props.style === 2) {
-    text = "Guess the song!"
-    logoImage = require("./images/temp_logo_2.png")
-    titleImage = require("./images/title_logo_2.png")
-    bodyStyle = "body-style2"
-    buttonStyle = "button-style2"
-    headerStyle = "header-style2"
-    centerStyle = "center-style2"
-    logoStyle = "logo-style1"
-    titleStyle = "titlelogo-style2"
-    footerStyle = "footer-style2"
-    guessStyle = "guess_style_2"
-    appContainer = "app_container_2"
-    heartStyle = require("./images/full_heart_2.png")
-    emptyHeartStyle = require("./images/empty_heart_3.png")
-  } else if (props.style === 3 ) {
-    text = "曲を推測します~!"
-    logoImage = require("./images/temp_logo_3.png")
-    titleImage = require("./images/title_logo_3.png")
-    bodyStyle = "body-style3"
-    buttonStyle = "button-style3"
-    headerStyle = "header-style3"
-    centerStyle = "center-style3"
-    logoStyle = "logo-style1"
-    titleStyle = "titlelogo-style3"
-    footerStyle = "footer-style3"
-    guessStyle = "guess_style_3"
-    appContainer = "app_container_3"
-    heartStyle = require("./images/full_heart_3.png")
-    emptyHeartStyle = require("./images/empty_heart_3.png")
-  }
-  function mainMenu(){
-    return(<MainMenu />)
-  }
-  function tryAgain(){
-    return(<App />)
-  }
-  return (
-    <div className={bodyStyle}>
-
-      <div className={bodyStyle}>
-        <h1>Game Over</h1>
-        <h2>Final Score: {props.score}</h2>
-      </div>
     </div>
   )
 }

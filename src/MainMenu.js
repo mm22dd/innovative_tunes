@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import App from "./App";
 import "./Style3.css"
 import "./Style2.css"
@@ -11,17 +11,16 @@ function credits() {
 }
 
 //creation of main menu component
-function MainMenu() {
+function MainMenu(props) {
   //started state to change render to App after play is hit
   const [started, setStarted] = useState(false)
-  const [style, setStyle] = useState(1)
+  const [style, setStyle] = useState(props.style)
   const [artistList, setArtistList] = useState([])
   function handleClick() {
     getJSON().then(response => setArtistList(response.ID))
     setStarted(true)
     getJSON().then(response => setArtistList(response.ID))
   }
-
   function changeStyle() {
     if (style === 1) {
       setStyle(2)
@@ -32,6 +31,12 @@ function MainMenu() {
     }
   }
 
+  useEffect(() => {
+    if (props.style === undefined){
+      setStyle(1)
+    }
+    return
+  }, []);
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, appContainer
   if (style === 1) {
     text = "Guess the artist!"
