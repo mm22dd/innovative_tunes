@@ -177,9 +177,15 @@ function App(props){
       let n = artist.name
     }catch (e){
       try {
-        artist.name = topTracks.tracks[0].artists[0]
+        let n = topTracks.tracks[0].artists[0]
       }catch (e) {
-        getTopSongs(props.artistList[index], token).then(response => setTracks(response))
+        try {
+          getTopSongs(props.artistList[index], token).then(response => setTracks(response))
+          let t = topTracks.tracks[0]
+        }catch (e){
+          getAuthKey().then(response => setToken(response.access_token))
+          getTopSongs(props.artistList[index], token).then(response => setTracks(response))
+        }
       }
     }
     if (guess === artist.name){
