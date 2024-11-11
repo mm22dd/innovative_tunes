@@ -1,0 +1,15 @@
+.popup{
+    width: 400px;
+    background: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px 30px 60px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif
+}
