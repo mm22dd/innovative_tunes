@@ -157,7 +157,7 @@ function App(props){
   if(quit === true){
     return (<MainMenu style={style}/>)
   }
-  if (token === "start"){
+  if (token === undefined){
     getAuthKey().then(response => setToken(response.access_token))
     return <>Loading...</>
   }
@@ -223,7 +223,7 @@ function App(props){
               </header>
             </div>
             <div className={bodyStyle}>
-              <Hearts numHearts={lives} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
+              <Hearts numHearts={lives-1} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
               <h2>Score: {score}</h2>
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
@@ -240,12 +240,12 @@ function App(props){
               </header>
             </div>
             <div className={bodyStyle}>
-              <Hearts numHearts={lives} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
+              <Hearts numHearts={lives-1} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
               <h2>Score: {score}</h2>
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
             <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
-            <button className={buttonStyle} onClick={fail}>Continue</button>
+            <button className={buttonStyle} onClick={fail}>Game Over</button>
           </div>)
       }
       //game over section
