@@ -88,7 +88,7 @@ function MainMenu() {
 
 
       <div className={centerStyle}>
-        <button className={buttonStyle} onClick={handleClick}>Play</button>
+        <button className={buttonStyle} onClick={handleClick}>Play Endless</button>
       </div>
 
       <div className={centerStyle}>
