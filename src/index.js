@@ -5,7 +5,5 @@ import MainMenu from "./MainMenu"
 //renders main menu which then renders app
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <StrictMode>
     <MainMenu />
-  </StrictMode>
 );
