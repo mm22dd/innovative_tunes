@@ -7,11 +7,6 @@ import "./Popup.css"
 import Popup from "./Popup";
 import axios from "axios";
 
-//credits function that can be called don't really like this as an alert but idk other options
-function credits() {
-  alert("Credits\nFront End: Miguel Machado, Jonathan Whelan\nBack End: Joseph Bustamante, Adam Crump, Andrew Mack");
-}
-
 //creation of main menu component
 function MainMenu(props) {
   //started state to change render to App after play is hit
