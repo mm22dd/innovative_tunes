@@ -103,7 +103,7 @@ function MainMenu(props) {
       <div className={centerStyle}>
         <button className={buttonStyle} onClick={() => setButtonPopup(true)}>Credits</button>
 
-        <Popup className={popup} trigger={buttonPopup} setTrigger={setButtonPopup()}>
+        <Popup className={popup} trigger={buttonPopup} setTrigger={setButtonPopup}>
           <h2>Credits</h2>
           <p>Front End: Miguel Machado, Jonathan Whelan</p>
           <p>Back End: Joseph Bustamante, Adam Crump, Andrew Mack</p>
