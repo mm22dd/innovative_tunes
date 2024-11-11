@@ -21,7 +21,7 @@ function App(props){
   const [artist, setArtist] = useState("")
   const [score, setScore] = useState(0)
   const [quit, setQuit] = useState(false)
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(-1)
 
   //function that is called when the user hits new game
   function loadTopTracks(){
@@ -173,20 +173,18 @@ function App(props){
   }
   //once all data is loaded in start to show the data
   else{
-    try{
-      let n = artist.name
-    }catch (e){
-      try {
-        let n = topTracks.tracks[0].artists[0]
-      }catch (e) {
-        try {
-          getTopSongs(props.artistList[index], token).then(response => setTracks(response))
-          let t = topTracks.tracks[0]
-        }catch (e){
-          getAuthKey().then(response => setToken(response.access_token))
-          getTopSongs(props.artistList[index], token).then(response => setTracks(response))
-        }
-      }
+    if (token === ""){
+      getAuthKey().then(response => setToken(response.access_token))
+    }
+    else if(index === -1){
+      let i = (Math.floor(Math.random()*100))
+      setIndex(i)
+    }
+    else if(topTracks.tracks === undefined){
+      getTopSongs(props.artistList[index], token).then(response => setTracks(response))
+    }
+    else if(artist === ""){
+      getArtist(props.artistList[index], token).then(response => setArtist(response))
     }
     if (guess === artist.name){
       content =
@@ -377,10 +375,14 @@ function Table(props){
   </tr>)
   let rowFive
     if (props.numGuess === 1){
-      rowFive = (<tr className={displayStyle}>
-        <td className={displayStyle}>{props.trackNames[8].name}</td>
-        <td className={displayStyle}>{props.trackNames[9].name}</td>
-      </tr>)
+      try {
+        rowFive = (<tr className={displayStyle}>
+          <td className={displayStyle}>{props.trackNames[8].name}</td>
+          <td className={displayStyle}>{props.trackNames[9].name}</td>
+        </tr>)
+      } catch (e){
+        return
+      }
     }
     else if(props.numGuess === 2){
       rowFive = (<tr className={displayStyle}>
