@@ -173,6 +173,15 @@ function App(props){
   }
   //once all data is loaded in start to show the data
   else{
+    try{
+      let n = artist.name
+    }catch (e){
+      try {
+        artist.name = topTracks.tracks[0].artists[0]
+      }catch (e) {
+        getTopSongs(props.artistList[index], token).then(response => setTracks(response))
+      }
+    }
     if (guess === artist.name){
       content =
         (<div className={bodyStyle}>
