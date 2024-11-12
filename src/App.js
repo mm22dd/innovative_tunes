@@ -102,7 +102,7 @@ function App(props){
     return
   }, []);
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle,
-    guessStyle, appContainer, heartStyle, emptyHeartStyle, vert, big
+    guessStyle, appContainer, heartStyle, emptyHeartStyle, vert, big, tableStyle, rowStyle, columnStyle
     vert = "vert"
     big = "bigFont"
   if (style === 1) {
@@ -120,6 +120,9 @@ function App(props){
     appContainer = "app_container_1"
     heartStyle = require("./images/full_heart_1.png")
     emptyHeartStyle = require("./images/empty_heart_1.png")
+    tableStyle = "table-style1"
+    rowStyle = "row-style1"
+    columnStyle = "column-style1"
   } else if (style === 2) {
     text = "Guess the song!"
     logoImage = require("./images/temp_logo_2.png")
@@ -135,6 +138,9 @@ function App(props){
     appContainer = "app_container_2"
     heartStyle = require("./images/full_heart_2.png")
     emptyHeartStyle = require("./images/empty_heart_3.png")
+    tableStyle = "table-style2"
+    rowStyle = "row-style2"
+    columnStyle = "column-style2"
   } else if (style === 3 ) {
     text = "曲を推測します~!"
     logoImage = require("./images/temp_logo_3.png")
@@ -150,6 +156,9 @@ function App(props){
     appContainer = "app_container_3"
     heartStyle = require("./images/full_heart_3.png")
     emptyHeartStyle = require("./images/empty_heart_3.png")
+    tableStyle = "table-style3"
+    rowStyle = "row-style3"
+    columnStyle = "column-style3"
   }
 
   //default content shown if nothing loads
@@ -161,19 +170,62 @@ function App(props){
   }
   if (token === undefined){
     getAuthKey().then(response => setToken(response.access_token))
-    return <>Loading...</>
-  }
-  else if(topTracks === undefined){
+    return (<div className={appContainer}>
+      <div className="content-wrap">
+        <header className={headerStyle}>
+          <img src={titleImage} alt="titlelogo" className={titleStyle}/>
+        </header>
+        <div className={bodyStyle}>
+          <h1>Loading...</h1>
+          <Hearts numHearts={5} emptyHeart={emptyHeartStyle} fullHeart={heartStyle}/>
+          <Loading tableStyle={tableStyle} rowStyle={rowStyle} columnStyle={columnStyle}/>
+          <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
+        </div>
+      </div>
+      <footer className={footerStyle}>
+      © 2024 Artificial Innovators
+      </footer>
+    </div>)
+  } else if (topTracks === undefined) {
     getTopSongs(props.artistList[index], token).then(response => setTracks(response))
-    return <>Loading...</>
-  }
-  else if(artist === undefined){
+    return (<div className={appContainer}>
+      <div className="content-wrap">
+        <header className={headerStyle}>
+          <img src={titleImage} alt="titlelogo" className={titleStyle}/>
+        </header>
+        <div className={bodyStyle}>
+          <h1>Loading...</h1>
+          <Hearts numHearts={5} emptyHeart={emptyHeartStyle} fullHeart={heartStyle}/>
+          <Loading tableStyle={tableStyle} rowStyle={rowStyle} columnStyle={columnStyle}/>
+          <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
+        </div>
+      </div>
+      <footer className={footerStyle}>
+        © 2024 Artificial Innovators
+      </footer>
+    </div>)
+  } else if (artist === undefined) {
     getArtist(props.artistList[index], token).then(response => setArtist(response))
-    return <>Loading...</>
+    return (<div className={appContainer}>
+      <div className="content-wrap">
+        <header className={headerStyle}>
+          <img src={titleImage} alt="titlelogo" className={titleStyle}/>
+        </header>
+        <div className={bodyStyle}>
+          <h1>Loading...</h1>
+          <Hearts numHearts={5} emptyHeart={emptyHeartStyle} fullHeart={heartStyle}/>
+          <Loading tableStyle={tableStyle} rowStyle={rowStyle} columnStyle={columnStyle}/>
+          <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
+        </div>
+      </div>
+      <footer className={footerStyle}>
+      © 2024 Artificial Innovators
+      </footer>
+    </div>)
   }
   //once all data is loaded in start to show the data
-  else{
-    if (guess === artist.name){
+  else {
+    if (guess === artist.name) {
       content =
         (<div className={bodyStyle}>
           <div>
@@ -189,16 +241,15 @@ function App(props){
           <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
           <button className={buttonStyle} onClick={incrementScore}>Continue</button>
         </div>)
-    }
-    else if (numGuess <= 5){
+    } else if (numGuess <= 5) {
       content =
-      (<div className={bodyStyle}>
-        <div>
-          <header className={headerStyle}>
-            <img src={titleImage} alt="titlelogo" className={titleStyle}/>
-          </header>
-        </div>
-        <div className={bodyStyle}>
+        (<div className={bodyStyle}>
+          <div>
+            <header className={headerStyle}>
+              <img src={titleImage} alt="titlelogo" className={titleStyle}/>
+            </header>
+          </div>
+          <div className={bodyStyle}>
           <Hearts numHearts={lives} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
           <h2>Score: {score}</h2>
           <Table trackNames={topTracks.tracks} styleNumber={style} numGuess={numGuess} guess={guess}/>
@@ -535,6 +586,34 @@ function FullTable(props) {
         </tbody>
       </table>
     </div>
+  )
+}
+function Loading(props){
+  return (
+    <table className={props.tableStyle}>
+      <tbody>
+      <tr className={props.rowStyle}>
+        <td className={props.columnStyle}>♪</td>
+        <td className={props.columnStyle}>♪</td>
+      </tr>
+      <tr className={props.rowStyle}>
+        <td className={props.columnStyle}>♪</td>
+        <td className={props.columnStyle}>♪</td>
+      </tr>
+      <tr className={props.rowStyle}>
+        <td className={props.columnStyle}>♪</td>
+        <td className={props.columnStyle}>♪</td>
+      </tr>
+      <tr className={props.rowStyle}>
+        <td className={props.columnStyle}>♪</td>
+        <td className={props.columnStyle}>♪</td>
+      </tr>
+      <tr className={props.rowStyle}>
+        <td className={props.columnStyle}>♪</td>
+        <td className={props.columnStyle}>♪</td>
+      </tr>
+      </tbody>
+    </table>
   )
 }
 
