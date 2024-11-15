@@ -72,7 +72,25 @@ function App(props){
   }
 
   function incrementScore(){
-    setScore(score+1)
+    switch (numGuess){
+      case 2:
+        setScore(score+5)
+        break
+      case 3:
+        setScore(score+4)
+        break
+      case 4:
+        setScore(score+3)
+        break
+      case 5:
+        setScore(score+2)
+        break
+      case 6:
+        setScore(score+1)
+        break
+      default:
+        setScore(score+1)
+    }
     loadTopTracks()
   }
 
@@ -225,7 +243,13 @@ function App(props){
   }
   //once all data is loaded in start to show the data
   else {
-    if (guess === artist.name) {
+    try {
+      if (guess.toLowerCase() === artist.name.toLowerCase()){
+      }
+    }catch (e) {
+      return
+    }
+    if (guess.toLowerCase() === artist.name.toLowerCase()) {
       content =
         (<div className={bodyStyle}>
           <div>
@@ -298,7 +322,7 @@ function App(props){
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
             <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
-            <button className={buttonStyle} onClick={fail}>Game Over</button>
+            <button className={buttonStyle} onClick={fail}>Results</button>
           </div>)
       }
       //game over section
