@@ -336,6 +336,7 @@ function App(props){
           <div className={vert}>
             <div className={bodyStyle}>
               <h1 className={big}>Game Over!</h1>
+              <Leaderboard styleNumber={style}/>
               <h2>Final Score: {score}</h2>
             </div>
             <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
@@ -640,5 +641,77 @@ function Loading(props){
     </table>
   )
 }
-
+function Leaderboard(props){
+  let titleImage, bodyStyle, headerStyle, titleStyle, tableStyle, rowStyle, columnStyle, displayStyle, tableHeaderStyle
+  if (props.styleNumber === 1) {
+    titleImage = require("./images/title_logo_1.png")
+    bodyStyle = "body-style1"
+    headerStyle = "header-style1"
+    titleStyle = "titlelogo-style1"
+    tableStyle = "table-style1"
+    rowStyle = "row-style1"
+    columnStyle = "column-style1"
+    displayStyle = "itemDisplayed-1"
+    tableHeaderStyle = "table-head1"
+  } else if (props.styleNumber === 2) {
+    titleImage = require("./images/title_logo_2.png")
+    bodyStyle = "body-style2"
+    headerStyle = "header-style2"
+    titleStyle = "titlelogo-style2"
+    tableStyle = "table-style2"
+    rowStyle = "row-style2"
+    columnStyle = "column-style2"
+    displayStyle = "itemDisplayed-2"
+    tableHeaderStyle = "table-head2"
+  } else if (props.styleNumber === 3) {
+  titleImage = require("./images/title_logo_3.png")
+  bodyStyle = "body-style3"
+  headerStyle = "header-style3"
+  titleStyle = "titlelogo-style3"
+  tableStyle = "table-style3"
+  rowStyle = "row-style3"
+  columnStyle = "column-style3"
+  displayStyle = "itemDisplayed-3"
+  tableHeaderStyle = "table-head3"
+}
+let rowOne = (<tr className={tableHeaderStyle}>
+  <td >Rank</td>
+  <td >Player</td>
+  <td >Score</td>
+</tr>)
+let rowTwo = (<tr className={rowStyle}>
+  <td className={columnStyle}>1</td>
+  <td className={columnStyle}>First</td>
+  <td className={columnStyle}>100</td>
+</tr>)
+let rowThree = (<tr className={rowStyle}>
+  <td className={columnStyle}>2</td>
+  <td className={columnStyle}>Second</td>
+  <td className={columnStyle}>50</td>
+</tr>)
+let rowFour = (<tr className={rowStyle}>
+  <td className={columnStyle}>3</td>
+  <td className={columnStyle}>Third</td>
+  <td className={columnStyle}>25</td>
+</tr>
+)
+let rowFive = (<tr className={rowStyle}>
+  <td className={displayStyle}>999</td>
+  <td className={displayStyle}>Player</td>
+  <td className={displayStyle}>5</td>
+</tr>)
+  return (
+    <div className={bodyStyle}>
+      <table className={tableStyle}>
+        <tbody>
+        {rowOne}
+        {rowTwo}
+        {rowThree}
+        {rowFour}
+        {rowFive}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 export default App;

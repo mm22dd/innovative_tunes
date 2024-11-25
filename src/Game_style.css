@@ -8,11 +8,13 @@
 }
 .vert {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 49%;
     transform: translate(-50%, -50%);
 }
 
 .bigFont {
     font-size: 96px;
+    padding: 0%;
+    margin: 4%;
 }
