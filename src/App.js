@@ -70,6 +70,7 @@ function App(props){
 
   function restart(){
     setLives(5)
+    setScore(0)
     loadTopTracks()
   }
 
