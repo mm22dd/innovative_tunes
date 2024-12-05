@@ -15,7 +15,6 @@ function MainMenu(props) {
   const [artistList, setArtistList] = useState([])
   const [buttonPopup, setButtonPopup] = useState(false)
   const [playerName, setPlayerName] = useState("")
-  const [txt, setTxt] = useState("")
 
   function updatePlayerName(e){
     setPlayerName(e.target.value)
@@ -85,7 +84,7 @@ function MainMenu(props) {
     guessStyle = "guess_style_3"
   }
   if (started) {
-    return (<App styleNumber={style} artistList = {artistList}/>)
+    return (<App styleNumber={style} artistList = {artistList} playerName = {playerName}/>)
   } else {
     //displays the contents of MainMenu3.html with some syntax tweaks to make it compatible with react
     return (
@@ -100,7 +99,6 @@ function MainMenu(props) {
 
       <h1 className={centerStyle}>{text}</h1>
 
-      // added name function
       <div class = "container">
           <form className={centerStyle} style={{ marginTop: '20px' }} onSubmit={handleClick}>
             <label>

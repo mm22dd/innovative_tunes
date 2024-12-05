@@ -15,6 +15,7 @@ function App(props){
   const [topTracks, setTracks] = useState([])
   const [newGame, setNewGame] = useState(false)
   const [style, setStyle] = useState(props.styleNumber)
+  const [playerName, setPlayerName] = useState(props.playerName)
   const [guess, setGuess] = useState("")
   const [numGuess, setNumGuess] = useState(1)
   const [txt, setTxt] = useState("")
@@ -276,7 +277,7 @@ function App(props){
           </div>
           <div className={bodyStyle}>
           <Hearts numHearts={lives} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
-          <h2>Score: {score}</h2>
+          <h2>{playerName}'s Score: {score}</h2>
           <Table trackNames={topTracks.tracks} styleNumber={style} numGuess={numGuess} guess={guess}/>
         </div>
         <div class = "container">
@@ -302,7 +303,7 @@ function App(props){
             </div>
             <div className={bodyStyle}>
               <Hearts numHearts={lives-1} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
-              <h2>Score: {score}</h2>
+              <h2>{playerName}'s Score: {score}</h2>
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
             <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
@@ -319,7 +320,7 @@ function App(props){
             </div>
             <div className={bodyStyle}>
               <Hearts numHearts={lives-1} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
-              <h2>Score: {score}</h2>
+              <h2>{playerName}'s Score: {score}</h2>
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
             <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
@@ -338,7 +339,7 @@ function App(props){
             <div className={bodyStyle}>
               <h1 className={big}>Game Over!</h1>
               <Leaderboard styleNumber={style}/>
-              <h2>Final Score: {score}</h2>
+              <h2>{playerName}'s Final Score: {score}</h2>
             </div>
             <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
             <button className={buttonStyle} onClick={restart}>Try Again</button>
