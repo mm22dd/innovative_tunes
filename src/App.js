@@ -8,6 +8,7 @@ import React, {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
 
 
+
 function App(props){
   //state variables that when changed will trigger the page to reload with the new values
   const [token, setToken] = useState("start")
@@ -396,6 +397,16 @@ function getArtist(artistID, token){
   console.log(response)
   return response
 }
+
+//function getHighScores() {
+//
+//  let scores
+//  const response = axios.get('http://localhost:8080/highscores').then((Response) => scores = Response.data).catch(err => console.log(err))
+//  return scores
+//}
+
+
+
 //main table of the display
 function Table(props){
   let titleImage, bodyStyle, headerStyle, titleStyle, tableStyle, rowStyle, columnStyle, displayStyle
@@ -641,8 +652,11 @@ function Loading(props){
     </table>
   )
 }
+
 function Leaderboard(props){
   let titleImage, bodyStyle, headerStyle, titleStyle, tableStyle, rowStyle, columnStyle, displayStyle, tableHeaderStyle
+  //const [scores, setScores] = useState("first")
+
   if (props.styleNumber === 1) {
     titleImage = require("./images/title_logo_1.png")
     bodyStyle = "body-style1"
@@ -673,7 +687,20 @@ function Leaderboard(props){
   columnStyle = "column-style3"
   displayStyle = "itemDisplayed-3"
   tableHeaderStyle = "table-head3"
-}
+  }
+
+
+
+
+//getHighScores().then(response => scores)
+//console.log(highscores)
+
+//let list
+//const response = await axios.get("http://localhost:8080/highscores").then
+//((Response) => list = Response.data).catch(err => console.log(err))
+
+
+
 let rowOne = (<tr className={tableHeaderStyle}>
   <td >Rank</td>
   <td >Player</td>
@@ -681,8 +708,8 @@ let rowOne = (<tr className={tableHeaderStyle}>
 </tr>)
 let rowTwo = (<tr className={rowStyle}>
   <td className={columnStyle}>1</td>
-  <td className={columnStyle}>First</td>
-  <td className={columnStyle}>100</td>
+  <td className={columnStyle}>first</td>
+  <td className={columnStyle}>300</td>
 </tr>)
 let rowThree = (<tr className={rowStyle}>
   <td className={columnStyle}>2</td>

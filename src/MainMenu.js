@@ -14,6 +14,7 @@ function MainMenu(props) {
   const [style, setStyle] = useState(props.style)
   const [artistList, setArtistList] = useState([])
   const [buttonPopup, setButtonPopup] = useState(false)
+
   function handleClick() {
     getJSON().then(response => setArtistList(response.ID))
     setStarted(true)
