@@ -14,6 +14,12 @@ function MainMenu(props) {
   const [style, setStyle] = useState(props.style)
   const [artistList, setArtistList] = useState([])
   const [buttonPopup, setButtonPopup] = useState(false)
+  const [playerName, setPlayerName] = useState("")
+  const [txt, setTxt] = useState("")
+
+  function updatePlayerName(e){
+    setPlayerName(e.target.value)
+  }
 
   function handleClick() {
     getJSON().then(response => setArtistList(response.ID))
@@ -36,7 +42,7 @@ function MainMenu(props) {
     }
     return
   }, []);
-  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, appContainer, popup
+  let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle, appContainer, popup, guessStyle
   popup = "popup"
   if (style === 1) {
     text = "Guess the artist!"
@@ -50,6 +56,7 @@ function MainMenu(props) {
     titleStyle = "titlelogo-style1"
     footerStyle = "footer-style1"
     appContainer = "app_container_1"
+    guessStyle = "guess_style_1"
   } else if (style === 2) {
     text = "Guess the artist!"
     logoImage = require("./images/temp_logo_2.png")
@@ -62,6 +69,7 @@ function MainMenu(props) {
     titleStyle = "titlelogo-style2"
     footerStyle = "footer-style2"
     appContainer = "app_container_2"
+    guessStyle = "guess_style_2"
   } else if (style === 3) {
     text = "曲を推測します~!"
     logoImage = require("./images/temp_logo_3.png")
@@ -74,6 +82,7 @@ function MainMenu(props) {
     titleStyle = "titlelogo-style3"
     footerStyle = "footer-style3"
     appContainer = "app_container_3"
+    guessStyle = "guess_style_3"
   }
   if (started) {
     return (<App styleNumber={style} artistList = {artistList}/>)
@@ -91,9 +100,14 @@ function MainMenu(props) {
 
       <h1 className={centerStyle}>{text}</h1>
 
-
-      <div className={centerStyle}>
-        <button className={buttonStyle} onClick={handleClick}>Play Endless</button>
+      // added name function
+      <div class = "container">
+          <form className={centerStyle} style={{ marginTop: '20px' }} onSubmit={handleClick}>
+            <label>
+              <input name="player" placeholder='Player name' value={playerName} onChange={updatePlayerName} autoComplete="off"/>
+            </label>
+            <button type="submit" className={guessStyle}>Play Endless</button>
+          </form>
       </div>
 
       <div className={centerStyle}>
@@ -128,4 +142,5 @@ async function getJSON() {
   ((Response) => list = Response.data).catch(err => console.log(err))
   return response
 }
+
 export default MainMenu
