@@ -24,7 +24,7 @@ function App(props){
   const [quit, setQuit] = useState(false)
   const [index, setIndex] = useState(-1)
   const [highScores, setHighScores] = useState([])
-  const [rank, setRank] = useState([])
+  const [rank, setRank] = useState(0)
 
   //function that is called when the user hits new game
   function loadTopTracks(){
@@ -67,7 +67,10 @@ function App(props){
 
   function fail(){
     setLives(0)
-    insertScore(playerName, score).then(Response => setRank(Response)).catch(err => console.log(err))
+    console.log(playerName)
+    console.log(score)
+    console.log(rank)
+    insertScore(playerName, score).then(Response => setRank(Response.data.rank)).catch(err => console.log(err))
     //getPlacement(score).then(Response => setRank(Response)).catch(err => console.log(err))
     console.log(rank)
   }
@@ -368,7 +371,7 @@ console.log(highScores)
           <div className={vert}>
             <div className={bodyStyle}>
               <h1 className={big}>Game Over!</h1>
-              <Leaderboard styleNumber={style}/>
+              <Leaderboard styleNumber={style} highScores={highScores} rank = {rank} playerName = {playerName} score = {score} />
               <h2>{playerName}'s Final Score: {score}</h2>
             </div>
             <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
@@ -451,14 +454,14 @@ function insertScore(player_name, score) {
   console.log(response)
   console.log(score)
 
-  const response2 = getPlacement(score).then(Response => rank=(Response)).catch(err => console.log(err))
-
+  const response2 = getPlacement(score).then((Response) => rank = Response).catch(err => console.log(err))
+  console.log(response2)
   return response2
 }
 
 function getPlacement(score) {
   let placement
-  const response = axios.get(`http://localhost:8080/userplacement/${score}`).then((Response) => placement = Response.data.rank).catch(err => console.log(err))
+  const response = axios.get(`http://localhost:8080/userplacement/${score}`).then((Response) => placement = Response).catch(err => console.log(err))
   console.log(response)
   console.log(placement)
   return response
@@ -751,7 +754,7 @@ function Leaderboard(props){
 
 
 
-
+console.log(props.highScores)
 
 //console.log(highscores)
 

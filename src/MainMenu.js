@@ -14,6 +14,11 @@ function MainMenu(props) {
   const [style, setStyle] = useState(props.style)
   const [artistList, setArtistList] = useState([])
   const [buttonPopup, setButtonPopup] = useState(false)
+  const [playerName, setPlayerName] = useState("")
+
+  function updatePlayerName(e){
+    setPlayerName(e.target.value)
+  }
 
   function handleClick() {
     getJSON().then(response => setArtistList(response.ID))
