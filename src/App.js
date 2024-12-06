@@ -368,8 +368,8 @@ console.log(highScores)
           <div className={vert}>
             <div className={bodyStyle}>
               <h1 className={big}>Game Over!</h1>
-              <Leaderboard styleNumber={style} highScores={highScores} rank={rank} score={score} playerName = {playerName}/>
-              <h2>Final Score: {score}</h2>
+              <Leaderboard styleNumber={style}/>
+              <h2>{playerName}'s Final Score: {score}</h2>
             </div>
             <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
             <button className={buttonStyle} onClick={restart}>Try Again</button>
