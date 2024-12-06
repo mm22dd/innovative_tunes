@@ -1,4 +1,5 @@
 import mysql from 'mysql2';
+import fs from 'fs'
 
 
 //create database connection
@@ -18,7 +19,7 @@ export async function getUserPlacement(score) {
         WHERE score >= ?
         `, [score]);
     
-    return rows[rows.length - 1].rank + 1;
+    return rows[rows.length - 1];
 };
 
 //query to insert new score at the end of a game
@@ -51,5 +52,10 @@ export async function getHighScores() {
 
 
 
-const rank = await getUserPlacement(3)
-console.log(rank)
+const jsonData = await getHighScores()
+
+fs.writeFileSync('public/highscores.json', JSON.stringify(jsonData))
+//console.log(rank)
+
+
+

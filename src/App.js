@@ -8,7 +8,6 @@ import React, {useEffect, useState} from "react";
 import {wait} from "@testing-library/user-event/dist/utils";
 
 
-
 function App(props){
   //state variables that when changed will trigger the page to reload with the new values
   const [token, setToken] = useState("start")
@@ -16,6 +15,7 @@ function App(props){
   const [newGame, setNewGame] = useState(false)
   const [style, setStyle] = useState(props.styleNumber)
   const [guess, setGuess] = useState("")
+  const [playerName, setPlayerName] = useState(props.playerName)
   const [numGuess, setNumGuess] = useState(1)
   const [txt, setTxt] = useState("")
   const [lives, setLives] = useState(5)
@@ -23,6 +23,8 @@ function App(props){
   const [score, setScore] = useState(0)
   const [quit, setQuit] = useState(false)
   const [index, setIndex] = useState(-1)
+  const [highScores, setHighScores] = useState([])
+  const [rank, setRank] = useState([])
 
   //function that is called when the user hits new game
   function loadTopTracks(){
@@ -65,10 +67,14 @@ function App(props){
 
   function fail(){
     setLives(0)
+    insertScore(playerName, score).then(Response => setRank(Response)).catch(err => console.log(err))
+    //getPlacement(score).then(Response => setRank(Response)).catch(err => console.log(err))
+    console.log(rank)
   }
 
   function restart(){
     setLives(5)
+    setScore(0)
     loadTopTracks()
   }
 
@@ -120,6 +126,13 @@ function App(props){
     getArtist(props.artistList[index], token).then(response => setArtist(response))
     return
   }, []);
+useEffect(() => {
+    getHighScores().then(Response => setHighScores(Response)).catch(err => console.log(err))
+    console.log(highScores)
+}, []);
+
+console.log(highScores)
+
   let text, logoImage, titleImage, bodyStyle, headerStyle, centerStyle, footerStyle, buttonStyle, logoStyle, titleStyle,
     guessStyle, appContainer, heartStyle, emptyHeartStyle, vert, big, tableStyle, rowStyle, columnStyle
     vert = "vert"
@@ -241,6 +254,24 @@ function App(props){
       © 2024 Artificial Innovators
       </footer>
     </div>)
+  } else if (highScores === undefined) {
+    getHighScores().then(response => setHighScores(response))
+    return (<div className={appContainer}>
+      <div className="content-wrap">
+        <header className={headerStyle}>
+          <img src={titleImage} alt="titlelogo" className={titleStyle}/>
+        </header>
+        <div className={bodyStyle}>
+          <h1>Loading...</h1>
+          <Hearts numHearts={5} emptyHeart={emptyHeartStyle} fullHeart={heartStyle}/>
+          <Loading tableStyle={tableStyle} rowStyle={rowStyle} columnStyle={columnStyle}/>
+          <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
+        </div>
+      </div>
+      <footer className={footerStyle}>
+      © 2024 Artificial Innovators
+      </footer>
+    </div>)
   }
   //once all data is loaded in start to show the data
   else {
@@ -276,7 +307,7 @@ function App(props){
           </div>
           <div className={bodyStyle}>
           <Hearts numHearts={lives} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
-          <h2>Score: {score}</h2>
+          <h2>{playerName}'s Score: {score}</h2>
           <Table trackNames={topTracks.tracks} styleNumber={style} numGuess={numGuess} guess={guess}/>
         </div>
         <div class = "container">
@@ -302,7 +333,7 @@ function App(props){
             </div>
             <div className={bodyStyle}>
               <Hearts numHearts={lives-1} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
-              <h2>Score: {score}</h2>
+              <h2>{playerName}'s Score: {score}</h2>
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
             <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
@@ -319,7 +350,7 @@ function App(props){
             </div>
             <div className={bodyStyle}>
               <Hearts numHearts={lives-1} fullHeart={heartStyle} emptyHeart={emptyHeartStyle}/>
-              <h2>Score: {score}</h2>
+              <h2>{playerName}'s Score: {score}</h2>
               <FullTable trackNames={topTracks.tracks} styleNumber={style} artist={artist}/>
             </div>
             <button className={buttonStyle} onClick={changeStyle}>Change Style</button>
@@ -337,7 +368,7 @@ function App(props){
           <div className={vert}>
             <div className={bodyStyle}>
               <h1 className={big}>Game Over!</h1>
-              <Leaderboard styleNumber={style}/>
+              <Leaderboard styleNumber={style} highScores={highScores} rank={rank} score={score} playerName = {playerName}/>
               <h2>Final Score: {score}</h2>
             </div>
             <button className={buttonStyle} onClick={mainMenu}>Main Menu</button>
@@ -398,14 +429,40 @@ function getArtist(artistID, token){
   return response
 }
 
-//function getHighScores() {
-//
-//  let scores
-//  const response = axios.get('http://localhost:8080/highscores').then((Response) => scores = Response.data).catch(err => console.log(err))
-//  return scores
-//}
+ function getHighScores() {
 
+  let highScores
+  const response = axios.get('http://localhost:8080/highscores').then((Response) => highScores = Response.data).catch(err => console.log(err))
+  console.log(response)
+  console.log(highScores)
+  return response
+}
 
+function insertScore(player_name, score) {
+  let rank
+  console.log(player_name)
+  console.log(score)
+  const response = axios.post('http://localhost:8080/score', 
+    {
+      player_name: player_name,
+      score: score
+    }
+  ).then((Response) => score = Response.data).catch(err => console.log(err))
+  console.log(response)
+  console.log(score)
+
+  const response2 = getPlacement(score).then(Response => rank=(Response)).catch(err => console.log(err))
+
+  return response2
+}
+
+function getPlacement(score) {
+  let placement
+  const response = axios.get(`http://localhost:8080/userplacement/${score}`).then((Response) => placement = Response.data.rank).catch(err => console.log(err))
+  console.log(response)
+  console.log(placement)
+  return response
+}
 
 //main table of the display
 function Table(props){
@@ -655,7 +712,9 @@ function Loading(props){
 
 function Leaderboard(props){
   let titleImage, bodyStyle, headerStyle, titleStyle, tableStyle, rowStyle, columnStyle, displayStyle, tableHeaderStyle
-  //const [scores, setScores] = useState("first")
+  //
+
+
 
   if (props.styleNumber === 1) {
     titleImage = require("./images/title_logo_1.png")
@@ -692,7 +751,8 @@ function Leaderboard(props){
 
 
 
-//getHighScores().then(response => scores)
+
+
 //console.log(highscores)
 
 //let list
@@ -707,25 +767,25 @@ let rowOne = (<tr className={tableHeaderStyle}>
   <td >Score</td>
 </tr>)
 let rowTwo = (<tr className={rowStyle}>
-  <td className={columnStyle}>1</td>
-  <td className={columnStyle}>first</td>
-  <td className={columnStyle}>300</td>
+  <td className={columnStyle}>{props.highScores[0].rank}</td>
+  <td className={columnStyle}>{props.highScores[0].player_name}</td>
+  <td className={columnStyle}>{props.highScores[0].score}</td>
 </tr>)
 let rowThree = (<tr className={rowStyle}>
-  <td className={columnStyle}>2</td>
-  <td className={columnStyle}>Second</td>
-  <td className={columnStyle}>50</td>
+  <td className={columnStyle}>{props.highScores[1].rank}</td>
+  <td className={columnStyle}>{props.highScores[1].player_name}</td>
+  <td className={columnStyle}>{props.highScores[1].score}</td>
 </tr>)
 let rowFour = (<tr className={rowStyle}>
-  <td className={columnStyle}>3</td>
-  <td className={columnStyle}>Third</td>
-  <td className={columnStyle}>25</td>
+  <td className={columnStyle}>{props.highScores[2].rank}</td>
+  <td className={columnStyle}>{props.highScores[2].player_name}</td>
+  <td className={columnStyle}>{props.highScores[2].score}</td>
 </tr>
 )
 let rowFive = (<tr className={rowStyle}>
-  <td className={displayStyle}>999</td>
-  <td className={displayStyle}>Player</td>
-  <td className={displayStyle}>5</td>
+  <td className={displayStyle}>{props.rank}</td>
+  <td className={displayStyle}>{props.playerName}</td>
+  <td className={displayStyle}>{props.score}</td>
 </tr>)
   return (
     <div className={bodyStyle}>

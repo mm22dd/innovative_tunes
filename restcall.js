@@ -1,6 +1,7 @@
 import express from 'express';
+//import cors from 'cors';
 
-import { getHighScores, getScore, insertScore } from './database.js';
+import { getHighScores, getScore, insertScore, getUserPlacement } from './database.js';
 
 const restfunc = express()
 
@@ -17,11 +18,20 @@ restfunc.get("/score/:id", async (req, res) => {
     res.send(score)
 })
 
+restfunc.get("/userplacement/:score", async (req, res) => {
+  const score = req.params.score
+  const placement = await getUserPlacement(score)
+  console.log(score)
+  console.log(placement)
+  res.send(placement)
+})
+
 restfunc.post("/score", async (req, res) => {
     const {player_name, score} = req.body
     const player_score = await insertScore(player_name, score)
     res.status(201).send(player_score)
 })
+
 
 restfunc.use((err, req, res, next) => {
   console.error(err.stack)
@@ -31,3 +41,4 @@ restfunc.use((err, req, res, next) => {
 restfunc.listen(8080, () => {
   console.log('Server is running on port 8080')
 })
+
