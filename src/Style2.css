@@ -99,6 +99,7 @@
     background-color: #030A40;
     text-align: center;
     width: 400px;
+    color: white;
 }
 
 .itemDisplayed-2{
@@ -137,4 +138,13 @@
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom right, #030A40 75%, #af40b5 120%);
+  }
+
+  .table-head2 {
+    text-align: center;
+    font-family: Copperplate;
+    font-weight: bold;
+    font-size: 40px;
+    padding: 50px;
+    color: white;
   }
